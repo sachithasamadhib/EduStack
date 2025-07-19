@@ -1,4 +1,4 @@
-package com.edustack.edustack.ui.CameraQr
+package com.edustack.edustack.ui.Teacher.CameraQr
 
 import androidx.lifecycle.ViewModel
 

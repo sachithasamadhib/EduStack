@@ -1,4 +1,4 @@
-package com.edustack.edustack.ui.Attendance
+package com.edustack.edustack.ui.Teacher.Attendance
 
 import android.os.Bundle
 import android.view.LayoutInflater

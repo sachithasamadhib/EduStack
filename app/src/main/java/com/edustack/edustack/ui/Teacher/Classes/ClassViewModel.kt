@@ -1,4 +1,4 @@
-package com.edustack.edustack.ui.Classes
+package com.edustack.edustack.ui.Teacher.Classes
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.edustack.edustack.ui.Results
+package com.edustack.edustack.ui.Teacher.Results
 
 import android.os.Bundle
 import android.view.LayoutInflater
