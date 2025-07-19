@@ -168,7 +168,7 @@
                         android:textStyle="bold" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnAddTeacher"
+                        android:id="@+id/viewAllReports"
                         android:layout_width="0dp"
                         android:layout_height="46dp"
                         android:layout_weight="1"

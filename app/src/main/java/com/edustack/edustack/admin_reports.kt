@@ -1,6 +1,7 @@
 package com.edustack.edustack
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -42,6 +43,12 @@ class admin_reports : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
+        //view all reports
+        val viewAllReports: Button = view.findViewById(R.id.viewAllReports)
+        viewAllReports.setOnClickListener {
+            val intent = Intent(activity, AllReports::class.java)
+            startActivity(intent)
+        }
         //start date
         val datePickerStart = Dialog(requireContext())
         datePickerStart.setContentView(R.layout.date_picker_start)
