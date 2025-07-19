@@ -2,24 +2,29 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_class">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.edustack.edustack.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_class"
+        android:name="com.edustack.edustack.ui.Classes.ClassFragment"
+        android:label="@string/title_class"
+        tools:layout="@layout/fragment_class" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.edustack.edustack.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/navigation_attendance"
+        android:name="com.edustack.edustack.ui.Attendance.AttendanceFragment"
+        android:label="@string/title_attendance"
+        tools:layout="@layout/fragment_attendance" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.edustack.edustack.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/navigation_results"
+        android:name="com.edustack.edustack.ui.Results.ResultFragment"
+        android:label="@string/title_results"
+        tools:layout="@layout/fragment_results" />
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.edustack.edustack.ui.CameraQr.CameraFragment"
+        android:label="@string/title_camera"
+        tools:layout="@layout/fragment_camera" />
 </navigation>
