@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".admin_accounts">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
+            android:background="#471396"
+            android:padding="26px"
+            android:text="Accounts"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginBottom="4dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="0dp"
+            android:orientation="horizontal">
+
+            <!-- Student count card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="181dp"
+                android:layout_height="160dp"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="12dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginEnd="4dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="122dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.02"
+                        android:text="250"
+                        android:textColor="#6200EA"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#D3D3D3" />
+
+                    <TextView
+                        android:id="@+id/subhead"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:letterSpacing="0.04"
+                        android:text="Students"
+                        android:textAllCaps="true"
+                        android:textColor="#757575"
+                        android:textSize="12dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Teacher count card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="181dp"
+                android:layout_height="160dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="4dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="12dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="153dp"
+                    android:layout_height="122dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/teacherCountAmu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.02"
+                        android:text="60"
+                        android:textColor="#03A9F4"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#D3D3D3" />
+
+                    <TextView
+                        android:id="@+id/teacherCount"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:letterSpacing="0.04"
+                        android:text="Teachers"
+                        android:textAllCaps="true"
+                        android:textColor="#757575"
+                        android:textSize="12dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Horizontal container for combo box and search bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="20dp"
+        >
+
+            <!-- Combo box -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:hint="Select">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:focusable="false" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Search bar -->
+            <SearchView
+                android:id="@+id/idSV"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="6px"
+                android:layout_weight="2"
+                android:background="@drawable/rounded_search_background"
+                android:iconifiedByDefault="false"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:queryBackground="@android:color/transparent"
+                android:queryHint="Search" />
+        </LinearLayout>
+
+        <!-- Container with border for action buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/border_container"
+            android:padding="16dp">
+
+            <!-- Student/Teacher buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <!-- Add Student Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddStudent"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#6200EA"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    app:cornerRadius="8dp"
+                    android:text="Add Student"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:elevation="6dp" />
+
+                <!-- Add Teacher Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddTeacher"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#03A9F4"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    app:cornerRadius="8dp"
+                    android:text="Add Teacher"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:elevation="6dp" />
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Account Card 1 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Name: John Doe"
+                                android:textSize="16dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Account ID: 1234"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Email: raveen@gmail.com"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center">
+
+                                <!-- Edit Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="#6200EA"
+                                    app:cornerRadius="6dp"
+                                    android:text="Edit"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+
+                                <!-- Delete Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:backgroundTint="#E53935"
+                                    app:cornerRadius="6dp"
+                                    android:text="Delete"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+
+                                <!-- View Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="4dp"
+                                    android:backgroundTint="#03A9F4"
+                                    app:cornerRadius="6dp"
+                                    android:text="View"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Account Card 1 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Name: John Doe"
+                                android:textSize="16dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Account ID: 1234"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Email: raveen@gmail.com"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center">
+
+                                <!-- Edit Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="#6200EA"
+                                    app:cornerRadius="6dp"
+                                    android:text="Edit"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+
+                                <!-- Delete Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:backgroundTint="#E53935"
+                                    app:cornerRadius="6dp"
+                                    android:text="Delete"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+
+                                <!-- View Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="4dp"
+                                    android:backgroundTint="#03A9F4"
+                                    app:cornerRadius="6dp"
+                                    android:text="View"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Account Card 1 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Name: John Doe"
+                                android:textSize="16dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Account ID: 1234"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Email: raveen@gmail.com"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center">
+
+                                <!-- Edit Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="#6200EA"
+                                    app:cornerRadius="6dp"
+                                    android:text="Edit"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+
+                                <!-- Delete Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:backgroundTint="#E53935"
+                                    app:cornerRadius="6dp"
+                                    android:text="Delete"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+
+                                <!-- View Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="4dp"
+                                    android:backgroundTint="#03A9F4"
+                                    app:cornerRadius="6dp"
+                                    android:text="View"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Account Card 1 -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Name: John Doe"
+                                android:textSize="16dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Account ID: 1234"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Email: raveen@gmail.com"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center">
+
+                                <!-- Edit Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="#6200EA"
+                                    app:cornerRadius="6dp"
+                                    android:text="Edit"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+
+                                <!-- Delete Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginHorizontal="4dp"
+                                    android:backgroundTint="#E53935"
+                                    app:cornerRadius="6dp"
+                                    android:text="Delete"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+
+                                <!-- View Button -->
+                                <com.google.android.material.button.MaterialButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="4dp"
+                                    android:backgroundTint="#03A9F4"
+                                    app:cornerRadius="6dp"
+                                    android:text="View"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="12sp"
+                                    android:textAllCaps="false"
+                                    app:elevation="2dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
