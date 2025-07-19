@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_classes"
+        android:name="com.edustack.edustack.ui.Classes.ClassesFragement"
+        android:label="@string/title_classes"
+        tools:layout="@layout/fragment_classes" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.edustack.edustack.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_calender"
+        android:name="com.edustack.edustack.ui.Calender.CalenderFragment"
+        android:label="@string/title_calender"
+        tools:layout="@layout/fragment_calender" />
+
+    <fragment
+        android:id="@+id/navigation_attendance"
+        android:name="com.edustack.edustack.ui.Attendance.AttendanceFragment"
+        android:label="@string/title_attendance"
+        tools:layout="@layout/fragment_attendance" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.edustack.edustack.ui.Settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>
