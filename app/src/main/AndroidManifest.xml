@@ -13,24 +13,19 @@
         android:theme="@style/Theme.Edustack">
 
         <!-- Use intent-filter to change the startup interface -->
-        <!--
-        <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-         -->
+        <!-- I changed android:name to the default one had conflicts -->
         <activity
-            <!-- I changed android:name to the default one had conflicts -->
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.Edustack.NoActionBar">
-            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
 
 </manifest>
