@@ -2,4 +2,7 @@
 <resources>
     <string name="app_name">Dropdown menu</string> <!-- Use lowercase -->
     <string name="select">Select items</string>
+    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_title_enable_notifications">Enable notifications</string>
+    <string name="pref_summary_notifications">Toggle all app notifications</string>
 </resources>
