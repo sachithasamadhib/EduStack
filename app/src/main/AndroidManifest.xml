@@ -12,6 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Edustack">
         <activity
+            android:theme="@style/Theme.Edustack.NoActionBar"
+            android:name=".Notifications"
+            android:exported="false" />
+        <activity
+            android:name=".ClassCalender"
+            android:exported="false"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+        <activity
             android:name=".AdminMenu"
             android:exported="true"
             android:theme="@style/Theme.Edustack.NoActionBar">
@@ -25,11 +33,11 @@
         <activity
             android:name=".AllReports"
             android:exported="false"
-            android:theme="@style/Theme.Edustack.NoActionBar"></activity>
+            android:theme="@style/Theme.Edustack.NoActionBar" />
         <activity
             android:name=".AllClasses"
             android:exported="false"
-            android:theme="@style/Theme.Edustack.NoActionBar"/>
+            android:theme="@style/Theme.Edustack.NoActionBar" />
     </application>
 
 </manifest>

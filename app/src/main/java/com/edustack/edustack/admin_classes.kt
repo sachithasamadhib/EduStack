@@ -45,6 +45,13 @@ class admin_classes : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
+        //calender part
+        val calenderBtn: Button = view.findViewById(R.id.btnNewButton)
+        calenderBtn.setOnClickListener {
+            val intentCalender = Intent(activity, ClassCalender::class.java)
+            startActivity(intentCalender)
+        }
+
         val btnViewAllClasses : Button = view.findViewById(R.id.btnViewClasses)
         //start time
         val timePicker = Dialog(requireContext())

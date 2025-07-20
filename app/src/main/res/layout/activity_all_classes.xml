@@ -58,20 +58,6 @@
             android:textSize="12sp"
             android:textAllCaps="false"
             app:elevation="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="4dp"
-            android:backgroundTint="#E53935"
-            app:cornerRadius="6dp"
-            android:text="View calender"
-            android:layout_gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="12sp"
-            android:textAllCaps="false"
-            app:elevation="2dp" />
     </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
@@ -163,6 +149,7 @@
                             android:layout_marginStart="4dp"
                             android:backgroundTint="#03A9F4"
                             app:cornerRadius="6dp"
+                            android:id="@+id/viewClassBtn"
                             android:text="View"
                             android:textColor="@android:color/white"
                             android:textSize="12sp"
@@ -177,7 +164,7 @@
                             android:backgroundTint="#03A9F4"
                             app:cornerRadius="6dp"
                             android:text="Update"
-                            android:id="@+id/updateID"
+                            android:id="@+id/updateBottomSheetBtn"
                             android:textColor="@android:color/white"
                             android:textSize="12sp"
                             android:textAllCaps="false"
