@@ -18,7 +18,12 @@
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.Edustack.NoActionBar">
+        </activity>
 
+        <activity
+            android:name=".TeacherActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
