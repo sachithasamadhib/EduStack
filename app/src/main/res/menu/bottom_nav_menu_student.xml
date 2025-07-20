@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_classes"
+        android:icon="@drawable/ic_classes"
+        android:title="@string/title_classes" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/title_notifications" />
+
+    <item
+        android:id="@+id/navigation_calender"
+        android:icon="@drawable/ic_calender"
+        android:title="@string/title_calender" />
+
+    <item
+        android:id="@+id/navigation_attendance"
+        android:icon="@drawable/ic_attendance"
+        android:title="@string/title_attendance" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/title_settings" />
+
+</menu>

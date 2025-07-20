@@ -207,14 +207,12 @@
                         android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Buttons -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="32dp">
+                    android:layout_marginTop="16dp">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnAddStudent"
@@ -242,6 +240,19 @@
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>
+
+                <!-- NEW BUTTON ADDED HERE -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNewButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginBottom="32dp"
+                    android:backgroundTint="#4CAF50"
+                    app:cornerRadius="8dp"
+                    android:text="View calender"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </ScrollView>
         </LinearLayout>

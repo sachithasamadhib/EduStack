@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="0dp"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Teacher information"
+                android:textSize="26sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginBottom="14dp"/>
+            <!-- Class Name -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Fname"
+                android:text="Teacher first name: Anna"
+                android:textSize="20sp"
+                android:layout_marginBottom="14dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Lname"
+                android:text="Teacher last name: Devis"
+                android:textSize="20sp"
+                android:layout_marginBottom="14dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/speciality"
+                android:text="Specility: Science"
+                android:textSize="20sp"
+                android:layout_marginBottom="14dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/joinedDate"
+                android:text="Joined date: 2025/04/20"
+                android:textSize="20sp"
+                android:layout_marginBottom="14dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/gender"
+                android:text="Gender: Male"
+                android:textSize="20sp"
+                android:layout_marginBottom="14dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mail"
+                android:text="Email: raveen@Teacher.gmail.com"
+                android:textSize="20sp"
+                android:layout_marginBottom="14dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/DOB"
+                android:text="Date of birth: 2025/04/20"
+                android:textSize="20sp"
+                android:layout_marginBottom="14dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contactNo"
+                android:text="Contact number: +94778733391"
+                android:textSize="20sp"
+                android:layout_marginBottom="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/city"
+                android:text="City: Colombo"
+                android:textSize="20sp"
+                android:layout_marginBottom="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Address"
+                android:text="Address: Colombo 7"
+                android:textSize="20sp"
+                android:layout_marginBottom="5dp"/>
+
+            <!-- Dismiss Button -->
+            <Button
+                android:id="@+id/removeTeacherAcc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"
+                android:padding="12dp"/>
+            <Button
+                android:id="@+id/closeAccInfoBtnTeacher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ok"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"
+                android:padding="12dp"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.cardview.widget.CardView>
