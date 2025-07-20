@@ -18,4 +18,6 @@
     <string name="title_attendance">Attendance</string>
     <string name="title_results">Results</string>
     <string name="title_camera">Camera</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

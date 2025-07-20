@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submission Details"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/textAssignmentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Assignment Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textStudentName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student Name"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textCurrentMarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Marks: 0"
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submission Materials:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMaterials"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:maxHeight="200dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Marks:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editTextMarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter marks"
+        android:inputType="number"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/buttonUpdateMarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Marks" />
+
+</LinearLayout>
