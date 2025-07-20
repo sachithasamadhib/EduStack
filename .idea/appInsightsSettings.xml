@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.edustack.edustack" />
+                  <option name="mobileSdkAppId" value="1:1081504814860:android:7aa4edc33644c71ce9db29" />
+                  <option name="projectId" value="edustack-5a1b9" />
+                  <option name="projectNumber" value="1081504814860" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
