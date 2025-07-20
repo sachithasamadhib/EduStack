@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_class"
+            android:icon="@drawable/ic_teacher_class"
+            android:title="@string/menu_Classes" />
+        <item
+            android:id="@+id/nav_attendance"
+            android:icon="@drawable/ic_teacher_attendance"
+            android:title="@string/menu_Attendance" />
+        <item
+            android:id="@+id/nav_results"
+            android:icon="@drawable/ic_teacher_results"
+            android:title="@string/menu_Results" />
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_teacher_camera"
+            android:title="@string/menu_Camera" />
+    </group>
+</menu>

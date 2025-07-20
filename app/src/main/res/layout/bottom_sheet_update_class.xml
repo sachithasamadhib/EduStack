@@ -84,7 +84,7 @@
                         android:layout_marginBottom="5dp"/>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/timeShowBottom"
+                        android:id="@+id/timeShow"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -112,7 +112,7 @@
                         android:layout_marginBottom="5dp"/>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/timeShowEndBottom"
+                        android:id="@+id/timeShowEnd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -125,7 +125,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Dropdowns Section -->
             <!-- Default Hall Number -->
             <TextView
                 android:layout_width="match_parent"
@@ -196,7 +195,7 @@
                     android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Dismiss Button -->
+            <!-- Buttons -->
             <Button
                 android:id="@+id/updateInfoBtn"
                 android:layout_width="match_parent"
