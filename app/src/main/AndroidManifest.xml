@@ -20,15 +20,15 @@
             android:theme="@style/Theme.Edustack.NoActionBar">
         </activity>
 
-        <activity
-            android:name=".TeacherActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Edustack.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<!--        <activity-->
+<!--            android:name=".TeacherActivity"-->
+<!--            android:exported="true"-->
+<!--            android:theme="@style/Theme.Edustack.NoActionBar" >-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
 
         <activity
             android:name=".AllReports"
@@ -39,6 +39,24 @@
             android:exported="false"
             android:theme="@style/Theme.Edustack.NoActionBar" />
 
+        <activity
+            android:name=".Students_MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar"
+            android:label=""
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
