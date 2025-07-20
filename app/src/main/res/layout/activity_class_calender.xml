@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClassCalender"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+        android:background="#471396"
+        android:padding="26px"
+        android:text="Calender"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginBottom="4dp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:backgroundTint="#3581E5"
+            app:cornerRadius="6dp"
+            android:text="Pic date"
+            android:id="@+id/picDateBtn"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            app:elevation="2dp" />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:backgroundTint="#3581E5"
+            app:cornerRadius="6dp"
+            android:id="@+id/createCalenderEventBtn"
+            android:text="Create event"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            app:elevation="2dp" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/border_container"
+            android:padding="16dp">
+            <!--day info-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#6727B3"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:text="20/04/2025"
+                                android:textSize="16dp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- Account Card 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:text="Class name: Science"
+                                android:textSize="16dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Description: Grade 11 science"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:layout_marginBottom="3dp"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Start Time: 10:00 AM"
+                                android:layout_marginBottom="3dp"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="End time: 11:00 AM"
+                                android:textSize="12dp"
+                                android:layout_marginBottom="3dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Teacher name: Mr. Kevin"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center">
+
+                        <!-- Delete Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="4dp"
+                            android:backgroundTint="#E53935"
+                            app:cornerRadius="6dp"
+                            android:text="Delete"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:elevation="2dp" />
+
+                        <!-- View Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"
+                            android:backgroundTint="#03A9F4"
+                            app:cornerRadius="6dp"
+                            android:id="@+id/editEventBtn"
+                            android:text="Edit"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:elevation="2dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

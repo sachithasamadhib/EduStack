@@ -20,8 +20,16 @@
              </intent-filter>
          -->
         <activity
-            <!-- I changed android:name to the default one had conflicts -->
-            android:name=".LoginActivity"
+
+            android:theme="@style/Theme.Edustack.NoActionBar"
+            android:name=".Notifications"
+            android:exported="false" />
+        <activity
+            android:name=".ClassCalender"
+            android:exported="false"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+        <activity
+            android:name=".AdminMenu"
             android:exported="true"
             android:theme="@style/Theme.Edustack.NoActionBar">
             >
@@ -31,6 +39,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AllReports"
+            android:exported="false"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+        <activity
+            android:name=".AllClasses"
+            android:exported="false"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
     </application>
 
 </manifest>

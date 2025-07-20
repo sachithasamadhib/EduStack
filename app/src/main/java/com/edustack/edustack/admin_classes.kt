@@ -1,6 +1,7 @@
 package com.edustack.edustack
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -44,6 +45,14 @@ class admin_classes : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
+        //calender part
+        val calenderBtn: Button = view.findViewById(R.id.btnNewButton)
+        calenderBtn.setOnClickListener {
+            val intentCalender = Intent(activity, ClassCalender::class.java)
+            startActivity(intentCalender)
+        }
+
+        val btnViewAllClasses : Button = view.findViewById(R.id.btnViewClasses)
         //start time
         val timePicker = Dialog(requireContext())
         timePicker.setContentView(R.layout.time_picker)
@@ -89,6 +98,10 @@ class admin_classes : Fragment() {
         }
         setTimeBtnEnd.setOnClickListener {
             timePickerEnd.dismiss()
+        }
+        btnViewAllClasses.setOnClickListener {
+            val intent = Intent(activity, AllClasses::class.java)
+            startActivity(intent)
         }
     }
 

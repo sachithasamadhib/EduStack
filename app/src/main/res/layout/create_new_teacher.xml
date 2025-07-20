@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="0dp"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <!-- Horizontal container for First Name and Last Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="8dp">
+
+                <!-- First Name -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="4dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher first name"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <EditText
+                        android:id="@+id/FirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_search_background"
+                        android:padding="10dp"
+                        android:hint="Kenn"
+                        android:inputType="text"
+                        android:importantForAutofill="yes"/>
+                </LinearLayout>
+
+                <!-- Last Name -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="4dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher last name"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <EditText
+                        android:id="@+id/lastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_search_background"
+                        android:padding="10dp"
+                        android:hint="Resenburg"
+                        android:inputType="text"
+                        android:importantForAutofill="yes"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!--address name-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_search_background"
+                android:padding="10dp"
+                android:hint="No. 6th Colombo Road"
+                android:inputType="text"
+                android:importantForAutofill="yes"
+                android:layout_marginBottom="8dp"/>
+            <!-- Horizontal container for School and Email -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="8dp">
+
+                <!-- School -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="4dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Speciality"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <EditText
+                        android:id="@+id/schoolName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_search_background"
+                        android:padding="10dp"
+                        android:hint="APC"
+                        android:inputType="text"
+                        android:importantForAutofill="yes"/>
+                </LinearLayout>
+
+                <!-- Email -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="4dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_search_background"
+                        android:padding="10dp"
+                        android:hint="example@gmail.com"
+                        android:inputType="textEmailAddress"
+                        android:importantForAutofill="yes"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- Contact Number Section -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="4dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Contact Number"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <EditText
+                        android:id="@+id/contactNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_search_background"
+                        android:padding="10dp"
+                        android:hint="+1 234 567 890"
+                        android:inputType="phone"
+                        android:importantForAutofill="yes"/>
+                </LinearLayout>
+                <!-- City and contact no. -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="4dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="City"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <EditText
+                        android:id="@+id/city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_search_background"
+                        android:padding="10dp"
+                        android:hint="Colombo"
+                        android:inputType="textCapWords"
+                        android:importantForAutofill="yes"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!--new username name-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New username"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/userNameNew"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_search_background"
+                    android:padding="10dp"
+                    android:hint="user123"
+                    android:inputType="text"
+                    android:importantForAutofill="yes"/>
+
+                <!-- Small button on the right -->
+                <ImageButton
+                    android:id="@+id/suggestUserName"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/down_arrow_download_svgrepo_com"
+                    android:scaleType="centerInside"
+                    android:padding="8dp"/>
+            </LinearLayout>
+            <!--new password name-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New password"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <EditText
+                    android:id="@+id/userPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_search_background"
+                    android:padding="10dp"
+                    android:hint="Enter your password"
+                    android:inputType="textPassword"
+                    android:importantForAutofill="yes"/>
+
+                <!-- Button fixed to right side -->
+                <ImageButton
+                    android:id="@+id/suggestPassword"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/down_arrow_download_svgrepo_com"
+                    android:scaleType="centerInside"
+                    android:padding="8dp"/>
+            </LinearLayout>
+            <!--confirm password-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Re-enter password"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"/>
+            <EditText
+                android:id="@+id/confirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_search_background"
+                android:padding="10dp"
+                android:hint="Enter your password"
+                android:inputType="textPassword"
+                android:importantForAutofill="yes"
+                android:layout_marginBottom="8dp"/>
+            <!--start date-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date of birth"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"
+                android:paddingTop="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dateForDOBTeacher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:hint="Select here"
+                android:textColor="#000000"
+                app:strokeColor="#CCCCCC"
+                app:strokeWidth="1dp"
+                app:backgroundTint="@android:color/white"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+            <!-- Dismiss Button -->
+            <Button
+                android:id="@+id/createStudentAccBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create account"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"
+                android:padding="12dp"/>
+            <Button
+                android:id="@+id/closeCreateAccTeaPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"
+                android:padding="12dp"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.cardview.widget.CardView>

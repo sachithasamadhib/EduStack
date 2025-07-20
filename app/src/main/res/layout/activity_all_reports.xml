@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AllReports">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+        android:background="#471396"
+        android:padding="26px"
+        android:text="All reports"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginBottom="4dp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="20dp"
+        >
+        <!-- Search bar -->
+        <SearchView
+            android:id="@+id/idSV"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="6px"
+            android:layout_weight="2"
+            android:background="@drawable/rounded_search_background"
+            android:iconifiedByDefault="false"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:queryBackground="@android:color/transparent"
+            android:queryHint="Search" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:backgroundTint="#3581E5"
+            app:cornerRadius="6dp"
+            android:text="Find"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            app:elevation="2dp" />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:backgroundTint="#E53935"
+            app:cornerRadius="6dp"
+            android:text="Remove all"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            app:elevation="2dp" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/border_container"
+            android:padding="16dp">
+            <!-- Account Card 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <ImageView
+                            android:layout_width="29dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="Create icon"
+                            android:src="@drawable/pdf_svgrepo_com" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Report002.pdf"
+                                android:textSize="16dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Type: Attedance"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="4 Apr 2025"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center">
+
+                        <!-- Delete Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="4dp"
+                            android:backgroundTint="#E53935"
+                            app:cornerRadius="6dp"
+                            android:text="Delete"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:elevation="2dp" />
+
+                        <!-- View Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"
+                            android:backgroundTint="#03A9F4"
+                            app:cornerRadius="6dp"
+                            android:text="View"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:elevation="2dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <ImageView
+                            android:layout_width="29dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="Create icon"
+                            android:src="@drawable/pdf_svgrepo_com" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Report002.pdf"
+                                android:textSize="16dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Type: Attedance"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="4 Apr 2025"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center">
+
+                        <!-- Delete Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="4dp"
+                            android:backgroundTint="#E53935"
+                            app:cornerRadius="6dp"
+                            android:text="Delete"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:elevation="2dp" />
+
+                        <!-- View Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"
+                            android:backgroundTint="#03A9F4"
+                            app:cornerRadius="6dp"
+                            android:text="View"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:elevation="2dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <ImageView
+                            android:layout_width="29dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="Create icon"
+                            android:src="@drawable/pdf_svgrepo_com" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Report002.pdf"
+                                android:textSize="16dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Type: Attedance"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="4 Apr 2025"
+                                android:textSize="12dp"
+                                android:textColor="#333"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center">
+
+                        <!-- Delete Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="4dp"
+                            android:backgroundTint="#E53935"
+                            app:cornerRadius="6dp"
+                            android:text="Delete"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:elevation="2dp" />
+
+                        <!-- View Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"
+                            android:backgroundTint="#03A9F4"
+                            app:cornerRadius="6dp"
+                            android:text="View"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false"
+                            app:elevation="2dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
