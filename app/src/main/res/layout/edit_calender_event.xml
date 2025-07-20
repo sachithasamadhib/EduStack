@@ -19,47 +19,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Class Name -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Class name"
-                android:textSize="16sp"
-                android:layout_marginBottom="5dp"/>
-
-            <EditText
-                android:id="@+id/className"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_search_background"
-                android:padding="10dp"
-                android:hint="Eg: Science Grade 11"
-                android:inputType="text"
-                android:importantForAutofill="yes"
-                android:layout_marginBottom="8dp"/>
-
-            <!-- Description -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Description"
-                android:textSize="16sp"
-                android:layout_marginBottom="5dp"
-                android:paddingTop="8dp"/>
-
-            <EditText
-                android:id="@+id/descrionClass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_search_background"
-                android:padding="10dp"
-                android:hint="Eg: Science paper class"
-                android:inputType="textMultiLine"
-                android:minLines="3"
-                android:gravity="top"
-                android:importantForAutofill="yes"
-                android:layout_marginBottom="8dp"/>
-
             <!-- Time Selection -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,7 +43,7 @@
                         android:layout_marginBottom="5dp"/>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/timeShow"
+                        android:id="@+id/timeShowBottom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -112,7 +71,7 @@
                         android:layout_marginBottom="5dp"/>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/timeShowEnd"
+                        android:id="@+id/timeShowEndBottom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -125,11 +84,12 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- Dropdowns Section -->
             <!-- Default Hall Number -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Default hall number"
+                android:text="Hall ID"
                 android:textSize="16sp"
                 android:layout_marginBottom="5dp"
                 android:paddingTop="8dp"/>
@@ -153,7 +113,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Teacher"
+                android:text="Course"
                 android:textSize="16sp"
                 android:layout_marginBottom="5dp"/>
 
@@ -176,26 +136,23 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Week name"
+                android:text="Date"
                 android:textSize="16sp"
                 android:layout_marginBottom="5dp"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/change_event_btn_new"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:hint="Select">
+                android:padding="10dp"
+                android:hint="06:30"
+                android:textColor="#000000"
+                app:strokeColor="#CCCCCC"
+                app:strokeWidth="1dp"
+                app:backgroundTint="@android:color/white"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteIDDay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:inputType="none" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Buttons -->
+            <!-- Dismiss Button -->
             <Button
                 android:id="@+id/updateInfoBtn"
                 android:layout_width="match_parent"
@@ -205,7 +162,7 @@
                 android:layout_marginTop="8dp"
                 android:padding="12dp"/>
             <Button
-                android:id="@+id/cancelButton"
+                android:id="@+id/updateCancelButtonEvent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cancel"

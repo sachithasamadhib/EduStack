@@ -12,33 +12,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Edustack">
 
-        <!-- Use intent-filter to change the startup interface -->
-        <!-- I changed android:name to the default one had conflicts -->
+        <!-- Activity: Notifications -->
+        <activity
+            android:name=".Notifications"
+            android:exported="false"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: Class Calendar -->
+        <activity
+            android:name=".ClassCalender"
+            android:exported="false"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: Admin Menu -->
+        <activity
+            android:name=".AdminMenu"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: Login -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.Edustack.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.Edustack.NoActionBar" />
 
-<!--        <activity-->
-<!--            android:name=".TeacherActivity"-->
-<!--            android:exported="true"-->
-<!--            android:theme="@style/Theme.Edustack.NoActionBar" >-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-
+        <!-- Activity: All Reports -->
         <activity
             android:name=".AllReports"
             android:exported="false"
             android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: All Classes -->
         <activity
             android:name=".AllClasses"
             android:exported="false"
             android:theme="@style/Theme.Edustack.NoActionBar" />
 
+        <!-- Main Launcher Activity -->
         <activity
             android:name=".Students_MainActivity"
             android:exported="true"
@@ -51,12 +61,24 @@
             </intent-filter>
         </activity>
 
+        <!-- Optional: Restore this if TeacherActivity is used -->
+        <!--
+        <activity
+            android:name=".TeacherActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
 
     </application>
+
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
