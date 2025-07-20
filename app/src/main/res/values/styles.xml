@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme -->
+    <style name="Theme.YourApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary theme colors -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <!-- Match status bar with toolbar -->
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+</resources>

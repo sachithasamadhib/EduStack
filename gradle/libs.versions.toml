@@ -16,7 +16,7 @@ activity = "1.8.0"
 googleGmsGoogleServices = "4.4.3"
 firebaseDatabase = "21.0.0"
 firebaseFirestore = "25.1.4"
-firebase-bom = "32.8.1"  #
+firebase-bom = "32.8.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,4 +42,3 @@ androidx-security-crypto = { module = "androidx.security:security-crypto", versi
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
-

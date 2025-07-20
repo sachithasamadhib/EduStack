@@ -27,4 +27,10 @@
         android:name="com.edustack.edustack.ui.Teacher.CameraQr.CameraFragment"
         android:label="@string/title_camera"
         tools:layout="@layout/fragment_teacher_camera" />
+
+    <fragment
+        android:id="@+id/accountSettingsFragment"
+        android:name="com.edustack.edustack.TeacherAccountSettingsFragment"
+        android:label="Account Settings"
+        tools:layout="@layout/fragment_teacher_account_settings"/>
 </navigation>
