@@ -18,13 +18,20 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
              </intent-filter>
-         -->
+        -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.Edustack.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".splashscreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
