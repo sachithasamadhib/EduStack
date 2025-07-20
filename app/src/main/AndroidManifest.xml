@@ -11,10 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Edustack">
-        <activity
-            android:name=".Students_MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_students_main" />
+
         <!-- Use intent-filter to change the startup interface -->
         <!--
         <intent-filter>
@@ -23,15 +20,20 @@
              </intent-filter>
         -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".Students_MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Edustack.NoActionBar">
+            android:theme="@style/Theme.Edustack.NoActionBar"
+            android:label=""
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>

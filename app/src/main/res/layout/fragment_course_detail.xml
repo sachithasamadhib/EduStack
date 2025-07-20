@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/courseTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:paddingHorizontal="40dp"
+        android:text="Course Title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:translationX="85dp" />
+
+    <Button
+        android:id="@+id/materialsButton"
+        android:layout_width="180dp"
+        android:layout_height="140dp"
+        android:insetLeft="0dp"
+        android:text="Materials"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:translationY="186dp"
+        app:cornerRadius="12dp" />
+
+    <Button
+        android:id="@+id/assignmentsButton"
+        android:layout_width="180dp"
+        android:layout_height="140dp"
+        android:paddingLeft="10dp"
+        android:text="Assignments"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:translationX="195dp"
+        android:translationY="40dp"
+        app:cornerRadius="12dp"
+        app:iconPadding="10dp" />
+
+    <Button
+        android:id="@+id/attendanceButton"
+        android:layout_width="180dp"
+        android:layout_height="140dp"
+        android:insetTop="9dp"
+        android:paddingRight="15dp"
+        android:text="Attendance"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:translationY="40dp"
+        app:cornerRadius="12dp"
+        app:strokeColor="#0D0D0D" />
+
+    <Button
+        android:id="@+id/resultsButton"
+        android:layout_width="180dp"
+        android:layout_height="140dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Results"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:translationX="195dp"
+        android:translationY="186dp"
+        app:cornerRadius="12dp" />
+</FrameLayout>

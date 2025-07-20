@@ -52,6 +52,14 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
+    implementation("com.google.android.material:material:1.12.0")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    // Firebase Storage
+    implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
+// Firebase Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx:24.10.0")
+    // QR Code generation
+    implementation("com.google.zxing:core:3.5.2")
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 }

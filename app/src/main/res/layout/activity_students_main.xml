@@ -4,7 +4,18 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize">
+   >
+
+    <!-- Custom Top Bar -->
+    <include
+        android:id="@+id/customTopBar"
+        layout="@layout/custom_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingBottom="90dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
