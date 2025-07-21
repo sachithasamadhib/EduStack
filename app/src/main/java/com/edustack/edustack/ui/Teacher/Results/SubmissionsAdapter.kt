@@ -37,11 +37,14 @@ class SubmissionsAdapter(
         private val textStudentName: TextView = itemView.findViewById(R.id.textStudentName)
         private val textMarks: TextView = itemView.findViewById(R.id.textMarks)
         private val textSubmissionDate: TextView = itemView.findViewById(R.id.textSubmissionDate)
+        private val textCourseName: TextView? = itemView.findViewById(R.id.textCourseName) // Optional if you add this to layout
 
         fun bind(submission: SubmissionData) {
-            textAssignmentTitle.text = submission.assignmentTitle
+            textAssignmentTitle.text = "${submission.assignmentTitle} (${submission.courseName})"
             textStudentName.text = submission.studentName
             textMarks.text = "Marks: ${submission.marks}"
+
+            textCourseName?.text = "Course: ${submission.courseName}"
 
             submission.date?.let { timestamp ->
                 val sdf = SimpleDateFormat("MMM dd, yyyy HH:mm", Locale.getDefault())
