@@ -25,7 +25,7 @@ class AdminMenu : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.admin_home -> replaceFragment(admin_accounts())
-                R.id.admin_Settings -> replaceFragment(admin_settings())
+                R.id.admin_Settings -> replaceFragment(AdminSettingsFragment())
                 R.id.admin_classes -> replaceFragment(admin_classes())
                 R.id.admin_reports -> replaceFragment(admin_reports())
                 R.id.admin_addClasses -> replaceFragment(admin_assign())
