@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1081504814860",
+    "project_id": "edustack-5a1b9",
+    "storage_bucket": "edustack-5a1b9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081504814860:android:7aa4edc33644c71ce9db29",
+        "android_client_info": {
+          "package_name": "com.edustack.edustack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZGAopv7_gHVpVCi2usBKluulPxH56evQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
