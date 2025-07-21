@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.edustack.edustack.databinding.FragmentClassAttendanceBinding
 import com.edustack.edustack.model.AttendanceItem
+import com.edustack.edustack.repository.StudentRepository
+import kotlinx.coroutines.launch
 
 class AttendanceFragment : Fragment() {
 
@@ -41,59 +44,80 @@ class AttendanceFragment : Fragment() {
     }
 
     private fun loadAttendanceData() {
-        // TODO: Replace with Firebase data
-        val dummyAttendanceData = getDummyAttendanceData()
+        // Commented out dummy data usage
+        // val dummyAttendanceData = getDummyAttendanceData()
+        // val adapter = AttendanceAdapter(dummyAttendanceData)
+        // binding.attendanceRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        // binding.attendanceRecyclerView.adapter = adapter
 
-        // Create and set adapter
-        val adapter = AttendanceAdapter(dummyAttendanceData)
+        // Firebase integration: Load attendance for the current student in this course
+        val repository = StudentRepository()
+        val adapter = AttendanceAdapter(emptyList())
         binding.attendanceRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.attendanceRecyclerView.adapter = adapter
+
+        lifecycleScope.launch {
+            val attendanceList = repository.getAttendanceForCourse(courseId)
+            // Map Attendance to AttendanceItem for adapter
+            val attendanceItems = attendanceList.map {
+                com.edustack.edustack.model.AttendanceItem(
+                    calendarId = it.calendarId,
+                    courseId = it.courseId,
+                    studentId = it.studentId,
+                    date = java.text.SimpleDateFormat("yyyy-MM-dd").format(java.util.Date(it.timestamp)),
+                    status = it.status,
+                    timestamp = it.timestamp
+                )
+            }
+            adapter.updateData(attendanceItems)
+        }
     }
 
-    private fun getDummyAttendanceData(): List<AttendanceItem> {
-        return listOf(
-            AttendanceItem(
-                calendarId = "1",
-                courseId = courseId,
-                studentId = "1",
-                date = "2024-01-15",
-                status = "Present",
-                timestamp = 1705276800000
-            ),
-            AttendanceItem(
-                calendarId = "2",
-                courseId = courseId,
-                studentId = "1",
-                date = "2024-01-16",
-                status = "Absent",
-                timestamp = 1705363200000
-            ),
-            AttendanceItem(
-                calendarId = "3",
-                courseId = courseId,
-                studentId = "1",
-                date = "2024-01-17",
-                status = "Present",
-                timestamp = 1705449600000
-            ),
-            AttendanceItem(
-                calendarId = "4",
-                courseId = courseId,
-                studentId = "1",
-                date = "2024-01-18",
-                status = "Late",
-                timestamp = 1705536000000
-            ),
-            AttendanceItem(
-                calendarId = "5",
-                courseId = courseId,
-                studentId = "1",
-                date = "2024-01-19",
-                status = "Present",
-                timestamp = 1705622400000
-            )
-        )
-    }
+    // Commented out dummy data function
+    // private fun getDummyAttendanceData(): List<AttendanceItem> {
+    //     return listOf(
+    //         AttendanceItem(
+    //             calendarId = "1",
+    //             courseId = courseId,
+    //             studentId = "1",
+    //             date = "2024-01-15",
+    //             status = "Present",
+    //             timestamp = 1705276800000
+    //         ),
+    //         AttendanceItem(
+    //             calendarId = "2",
+    //             courseId = courseId,
+    //             studentId = "1",
+    //             date = "2024-01-16",
+    //             status = "Absent",
+    //             timestamp = 1705363200000
+    //         ),
+    //         AttendanceItem(
+    //             calendarId = "3",
+    //             courseId = courseId,
+    //             studentId = "1",
+    //             date = "2024-01-17",
+    //             status = "Present",
+    //             timestamp = 1705449600000
+    //         ),
+    //         AttendanceItem(
+    //             calendarId = "4",
+    //             courseId = courseId,
+    //             studentId = "1",
+    //             date = "2024-01-18",
+    //             status = "Late",
+    //             timestamp = 1705536000000
+    //         ),
+    //         AttendanceItem(
+    //             calendarId = "5",
+    //             courseId = courseId,
+    //             studentId = "1",
+    //             date = "2024-01-19",
+    //             status = "Present",
+    //             timestamp = 1705622400000
+    //         )
+    //     )
+    // }
 
     override fun onDestroyView() {
         super.onDestroyView()

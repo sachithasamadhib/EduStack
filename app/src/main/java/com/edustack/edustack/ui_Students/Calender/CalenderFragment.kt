@@ -7,14 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.edustack.edustack.adapters.CalendarAdapter
 import com.edustack.edustack.databinding.FragmentCalenderBinding
 import com.edustack.edustack.model.CalendarEvent
+import com.edustack.edustack.repository.StudentRepository
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import kotlinx.coroutines.launch
 
 class CalenderFragment : Fragment() {
 
@@ -57,94 +60,107 @@ class CalenderFragment : Fragment() {
     }
 
     private fun loadCalendarData() {
-        // TODO: Replace with Firebase data
-        allEvents = getDummyCalendarData().toMutableList()
-        filteredEvents = allEvents.toMutableList()
-        calendarAdapter.updateEvents(filteredEvents)
-        updateEmptyState()
+        // Commented out dummy data usage
+        // allEvents = getDummyCalendarData().toMutableList()
+        // filteredEvents = allEvents.toMutableList()
+        // calendarAdapter.updateEvents(filteredEvents)
+        // updateEmptyState()
+
+        // Firebase integration: Load calendar events for the current student
+        val repository = StudentRepository()
+        lifecycleScope.launch {
+            val events = repository.getJoinedCourses().flatMap { course ->
+                repository.getCalendarEventsForCourse(course.id)
+            }
+            allEvents = events.toMutableList()
+            filteredEvents = allEvents.toMutableList()
+            calendarAdapter.updateEvents(filteredEvents)
+            updateEmptyState()
+        }
     }
 
-    private fun getDummyCalendarData(): List<CalendarEvent> {
-        return listOf(
-            CalendarEvent(
-                id = "1",
-                courseID = "1",
-                date = 1722240000000L, // July 30, 2025
-                endTime = 1722240000000L + (3600000L * 2L), // 2 hours later
-                hallID = "1",
-                startTime = 1722240000000L,
-                status = true,
-                courseName = "Programming Fundamentals",
-                hallName = "Computer Lab A"
-            ),
-            CalendarEvent(
-                id = "2",
-                courseID = "1",
-                date = 1722326400000L, // July 31, 2025
-                endTime = 1722326400000L + (3600000L * 1L) + (1800000L), // 1.5 hours later (1 hour + 30 minutes)
-                hallID = "2",
-                startTime = 1722326400000L,
-                status = true,
-                courseName = "Database Design",
-                hallName = "Lecture Hall B"
-            ),
-            CalendarEvent(
-                id = "3",
-                courseID = "1",
-                date = 1722412800000L, // August 1, 2025
-                endTime = 1722412800000L + (3600000L * 3L), // 3 hours later
-                hallID = "3",
-                startTime = 1722412800000L,
-                status = true,
-                courseName = "Web Development",
-                hallName = "Computer Lab C"
-            ),
-            CalendarEvent(
-                id = "4",
-                courseID = "1",
-                date = 1722499200000L, // August 2, 2025
-                endTime = 1722499200000L + (3600000L * 2L), // 2 hours later
-                hallID = "1",
-                startTime = 1722499200000L,
-                status = false, // Cancelled
-                courseName = "Mobile App Development",
-                hallName = "Computer Lab A"
-            ),
-            CalendarEvent(
-                id = "5",
-                courseID = "1",
-                date = 1722585600000L, // August 3, 2025
-                endTime = 1722585600000L + (3600000L * 2L) + (1800000L), // 2.5 hours later (2 hours + 30 minutes)
-                hallID = "2",
-                startTime = 1722585600000L,
-                status = true,
-                courseName = "Software Engineering",
-                hallName = "Lecture Hall B"
-            ),
-            CalendarEvent(
-                id = "6",
-                courseID = "1",
-                date = 1722672000000L, // August 4, 2025
-                endTime = 1722672000000L + (3600000L * 1L), // 1 hour later
-                hallID = "3",
-                startTime = 1722672000000L,
-                status = true,
-                courseName = "Project Presentation",
-                hallName = "Computer Lab C"
-            ),
-            CalendarEvent(
-                id = "7",
-                courseID = "1",
-                date = 1722758400000L, // August 5, 2025
-                endTime = 1722758400000L + (3600000L * 2L), // 2 hours later
-                hallID = "1",
-                startTime = 1722758400000L,
-                status = true,
-                courseName = "Final Exam",
-                hallName = "Computer Lab A"
-            )
-        )
-    }
+    // Commented out dummy data function
+    // private fun getDummyCalendarData(): List<CalendarEvent> {
+    //     return listOf(
+    //         CalendarEvent(
+    //             id = "1",
+    //             courseID = "1",
+    //             date = 1722240000000L, // July 30, 2025
+    //             endTime = 1722240000000L + (3600000L * 2L), // 2 hours later
+    //             hallID = "1",
+    //             startTime = 1722240000000L,
+    //             status = true,
+    //             courseName = "Programming Fundamentals",
+    //             hallName = "Computer Lab A"
+    //         ),
+    //         CalendarEvent(
+    //             id = "2",
+    //             courseID = "1",
+    //             date = 1722326400000L, // July 31, 2025
+    //             endTime = 1722326400000L + (3600000L * 1L) + (1800000L), // 1.5 hours later (1 hour + 30 minutes)
+    //             hallID = "2",
+    //             startTime = 1722326400000L,
+    //             status = true,
+    //             courseName = "Database Design",
+    //             hallName = "Lecture Hall B"
+    //         ),
+    //         CalendarEvent(
+    //             id = "3",
+    //             courseID = "1",
+    //             date = 1722412800000L, // August 1, 2025
+    //             endTime = 1722412800000L + (3600000L * 3L), // 3 hours later
+    //             hallID = "3",
+    //             startTime = 1722412800000L,
+    //             status = true,
+    //             courseName = "Web Development",
+    //             hallName = "Computer Lab C"
+    //         ),
+    //         CalendarEvent(
+    //             id = "4",
+    //             courseID = "1",
+    //             date = 1722499200000L, // August 2, 2025
+    //             endTime = 1722499200000L + (3600000L * 2L), // 2 hours later
+    //             hallID = "1",
+    //             startTime = 1722499200000L,
+    //             status = false, // Cancelled
+    //             courseName = "Mobile App Development",
+    //             hallName = "Computer Lab A"
+    //         ),
+    //         CalendarEvent(
+    //             id = "5",
+    //             courseID = "1",
+    //             date = 1722585600000L, // August 3, 2025
+    //             endTime = 1722585600000L + (3600000L * 2L) + (1800000L), // 2.5 hours later (2 hours + 30 minutes)
+    //             hallID = "2",
+    //             startTime = 1722585600000L,
+    //             status = true,
+    //             courseName = "Software Engineering",
+    //             hallName = "Lecture Hall B"
+    //         ),
+    //         CalendarEvent(
+    //             id = "6",
+    //             courseID = "1",
+    //             date = 1722672000000L, // August 4, 2025
+    //             endTime = 1722672000000L + (3600000L * 1L), // 1 hour later
+    //             hallID = "3",
+    //             startTime = 1722672000000L,
+    //             status = true,
+    //             courseName = "Project Presentation",
+    //             hallName = "Computer Lab C"
+    //         ),
+    //         CalendarEvent(
+    //             id = "7",
+    //             courseID = "1",
+    //             date = 1722758400000L, // August 5, 2025
+    //             endTime = 1722758400000L + (3600000L * 2L), // 2 hours later
+    //             hallID = "1",
+    //             startTime = 1722758400000L,
+    //             status = true,
+    //             courseName = "Final Exam",
+    //             hallName = "Computer Lab A"
+    //         )
+    //     )
+    // }
 
     private fun setupButtons() {
         binding.selectDateButton.setOnClickListener {

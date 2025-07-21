@@ -9,15 +9,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.edustack.edustack.adapters.SettingsAdapter
 import com.edustack.edustack.adapters.SettingsOption
 import com.edustack.edustack.databinding.FragmentSettingsBinding
 import com.edustack.edustack.model.StudentAccount
 import com.edustack.edustack.model.StudentInfo
+import com.edustack.edustack.repository.StudentRepository
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AppCompatActivity
 
 class SettingsFragment : Fragment() {
 
@@ -40,40 +45,51 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadUserData()
-        setupUserProfile()
-        setupSettingsOptions()
+        // Commented out dummy data usage
+        // loadUserData()
+        // setupUserProfile()
+        // setupSettingsOptions()
+
+        // Firebase integration: Load student profile and set up UI
+        val repository = StudentRepository()
+        lifecycleScope.launch {
+            studentAccount = repository.getStudentAccount()
+            studentInfo = studentAccount?.studentInfoID?.let { repository.getStudentInfo(it) }
+            setupUserProfile()
+            setupSettingsOptions()
+        }
     }
 
-    private fun loadUserData() {
-        // TODO: Replace with Firebase data
-        studentAccount = getDummyStudentAccount()
-        studentInfo = getDummyStudentInfo()
-    }
+    // Commented out dummy data function
+    // private fun loadUserData() {
+    //     // TODO: Replace with Firebase data
+    //     studentAccount = getDummyStudentAccount()
+    //     studentInfo = getDummyStudentInfo()
+    // }
 
-    private fun getDummyStudentAccount(): StudentAccount {
-        return StudentAccount(
-            password = "20015646",
-            status = "ACTIVE",
-            studentID = "user1234",
-            studentInfoID = "1"
-        )
-    }
+    // private fun getDummyStudentAccount(): StudentAccount {
+    //     return StudentAccount(
+    //         password = "20015646",
+    //         status = "ACTIVE",
+    //         studentID = "user1234",
+    //         studentInfoID = "1"
+    //     )
+    // }
 
-    private fun getDummyStudentInfo(): StudentInfo {
-        return StudentInfo(
-            address = "123 Main Street",
-            city = "Kurunegala",
-            contactNumber = "+94778733392",
-            dob = 1466700000000L, // June 23, 2016
-            email = "raveen@gmail.com",
-            fname = "Raveen",
-            gender = "Male",
-            joinedDate = 1721580000000L, // July 15, 2025
-            lname = "Perera",
-            school = "APC"
-        )
-    }
+    // private fun getDummyStudentInfo(): StudentInfo {
+    //     return StudentInfo(
+    //         address = "123 Main Street",
+    //         city = "Kurunegala",
+    //         contactNumber = "+94778733392",
+    //         dob = 1466700000000L, // June 23, 2016
+    //         email = "raveen@gmail.com",
+    //         fname = "Raveen",
+    //         gender = "Male",
+    //         joinedDate = 1721580000000L, // July 15, 2025
+    //         lname = "Perera",
+    //         school = "APC"
+    //     )
+    // }
 
     private fun setupUserProfile() {
         studentInfo?.let { info ->
@@ -269,8 +285,18 @@ class SettingsFragment : Fragment() {
             .setTitle("Logout")
             .setMessage("Are you sure you want to logout?")
             .setPositiveButton("Logout") { _, _ ->
-                // TODO: Implement logout functionality
-                Toast.makeText(requireContext(), "Logout functionality will be implemented", Toast.LENGTH_LONG).show()
+                // Sign out from Firebase Auth
+                FirebaseAuth.getInstance().signOut()
+                // Clear loginPrefs role
+                requireContext().getSharedPreferences("loginPrefs", AppCompatActivity.MODE_PRIVATE)
+                    .edit()
+                    .remove("role")
+                    .apply()
+                // Navigate to login and clear back stack
+                val intent = Intent(requireContext(), com.edustack.edustack.LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                requireActivity().finish()
             }
             .setNegativeButton("Cancel", null)
             .show()
