@@ -19,8 +19,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.edit
 import com.edustack.edustack.databinding.FragmentAdminSettingsBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.messaging.FirebaseMessaging
+//import com.google.firebase.auth.FirebaseAuth
+//import com.google.firebase.messaging.FirebaseMessaging
 
 class AdminSettingsFragment : Fragment() {
 
@@ -28,8 +28,8 @@ class AdminSettingsFragment : Fragment() {
     private lateinit var sharedPrefs: SharedPreferences
     private lateinit var inactivityTimer: InactivityTimer
     private val handler = Handler(Looper.getMainLooper())
-    private val auth = FirebaseAuth.getInstance()
-    private val fcm = FirebaseMessaging.getInstance()
+//    private val auth = FirebaseAuth.getInstance()
+//    private val fcm = FirebaseMessaging.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -82,11 +82,11 @@ class AdminSettingsFragment : Fragment() {
     }
 
     private fun updateNotificationSubscription(enable: Boolean) {
-        if (enable) {
-            fcm.subscribeToTopic("admin_notifications")
-        } else {
-            fcm.unsubscribeFromTopic("admin_notifications")
-        }
+//        if (enable) {
+//            fcm.subscribeToTopic("admin_notifications")
+//        } else {
+//            fcm.unsubscribeFromTopic("admin_notifications")
+//        }
     }
 
     private fun setupAutoLogout() {
@@ -128,17 +128,17 @@ class AdminSettingsFragment : Fragment() {
     }
 
     private fun setupLogout() {
-        binding.btnLogout.setOnClickListener {
-            auth.signOut()
-            navigateToLogin()
-            showToast("Logged out successfully")
-        }
+//        binding.btnLogout.setOnClickListener {
+//            auth.signOut()
+//            navigateToLogin()
+//            showToast("Logged out successfully")
+//        }
     }
 
     private fun handleLogout() {
-        auth.signOut()
-        navigateToLogin()
-        showToast("Auto-logged out due to inactivity")
+//        auth.signOut()
+//        navigateToLogin()
+//        showToast("Auto-logged out due to inactivity")
     }
 
     private fun navigateToLogin() {

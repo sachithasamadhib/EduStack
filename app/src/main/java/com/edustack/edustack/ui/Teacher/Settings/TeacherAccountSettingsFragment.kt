@@ -36,7 +36,6 @@ class TeacherAccountSettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initialize Firebase Firestore
         firestore = FirebaseFirestore.getInstance()
 
         setupViews()
@@ -44,7 +43,6 @@ class TeacherAccountSettingsFragment : Fragment() {
     }
 
     private fun setupViews() {
-        // Setup gender spinner
         val genderAdapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.gender_array,
@@ -53,38 +51,24 @@ class TeacherAccountSettingsFragment : Fragment() {
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerGender.adapter = genderAdapter
 
-        // Setup date picker for DOB
-        binding.etDob.setOnClickListener {
-            showDatePicker()
-        }
-
-        binding.btnUpdateProfile.setOnClickListener {
-            updateProfile()
-        }
-
-        binding.btnLogout.setOnClickListener {
-            logout()
-        }
+        binding.etDob.setOnClickListener { showDatePicker() }
+        binding.btnUpdateProfile.setOnClickListener { updateProfile() }
+        binding.btnLogout.setOnClickListener { logout() }
     }
 
     private fun showDatePicker() {
         val calendar = Calendar.getInstance()
-
-        // If there's already a date in the field, use it as the initial date
         val currentDateText = binding.etDob.text.toString()
+
         if (currentDateText.isNotEmpty()) {
             try {
                 val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                 val currentDate = dateFormat.parse(currentDateText)
-                if (currentDate != null) {
-                    calendar.time = currentDate
-                }
-            } catch (e: Exception) {
-                // Use current date if parsing fails
-            }
+                if (currentDate != null) calendar.time = currentDate
+            } catch (_: Exception) {}
         }
 
-        val datePickerDialog = DatePickerDialog(
+        DatePickerDialog(
             requireContext(),
             { _, year, month, dayOfMonth ->
                 calendar.set(year, month, dayOfMonth)
@@ -94,14 +78,12 @@ class TeacherAccountSettingsFragment : Fragment() {
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
-        )
-        datePickerDialog.show()
+        ).show()
     }
 
     private fun loadUserDataFromFirestore() {
         setLoading(true)
 
-        // Show loading message
         Toast.makeText(requireContext(), "Loading profile data...", Toast.LENGTH_SHORT).show()
         firestore.collection("TeachersInfo")
             .document(teacherDocumentId)
@@ -118,9 +100,9 @@ class TeacherAccountSettingsFragment : Fragment() {
                         binding.etSpeciality.setText(document.getString("Speciality") ?: "")
 
                         val dobTimestamp = document.getTimestamp("DOB")
-                        if (dobTimestamp != null) {
+                        dobTimestamp?.let {
                             val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-                            binding.etDob.setText(dateFormat.format(dobTimestamp.toDate()))
+                            binding.etDob.setText(dateFormat.format(it.toDate()))
                         }
 
                         val gender = document.getString("Gender") ?: "Male"
@@ -131,44 +113,21 @@ class TeacherAccountSettingsFragment : Fragment() {
                         }
 
                         Toast.makeText(requireContext(), "Profile data loaded successfully", Toast.LENGTH_SHORT).show()
-
-                        println("Loaded data:")
-                        println("First Name: ${document.getString("Fname")}")
-                        println("Last Name: ${document.getString("Lname")}")
-                        println("Email: ${document.getString("Email")}")
-                        println("Contact: ${document.getString("ContactNo")}")
-                        println("Address: ${document.getString("Address")}")
-                        println("City: ${document.getString("City")}")
-                        println("Speciality: ${document.getString("Speciality")}")
-                        println("Gender: ${document.getString("Gender")}")
-
                     } catch (e: Exception) {
                         Toast.makeText(requireContext(), "Error parsing profile data: ${e.message}", Toast.LENGTH_SHORT).show()
                         e.printStackTrace()
                     }
                 } else {
-                    Toast.makeText(requireContext(), "No profile data found for document ID: $teacherDocumentId", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "No profile data found", Toast.LENGTH_LONG).show()
                     clearAllFields()
                 }
                 setLoading(false)
             }
-            .addOnFailureListener { exception ->
-                Toast.makeText(requireContext(), "Failed to load profile: ${exception.message}", Toast.LENGTH_LONG).show()
-                exception.printStackTrace()
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Failed to load profile: ${it.message}", Toast.LENGTH_LONG).show()
+                it.printStackTrace()
                 setLoading(false)
             }
-    }
-
-    private fun clearAllFields() {
-        binding.etFirstName.setText("")
-        binding.etLastName.setText("")
-        binding.etEmail.setText("")
-        binding.etContactNo.setText("")
-        binding.etAddress.setText("")
-        binding.etCity.setText("")
-        binding.etSpeciality.setText("")
-        binding.etDob.setText("")
-        binding.spinnerGender.setSelection(0)
     }
 
     private fun updateProfile() {
@@ -182,53 +141,24 @@ class TeacherAccountSettingsFragment : Fragment() {
         val dobString = binding.etDob.text.toString().trim()
         val gender = binding.spinnerGender.selectedItem.toString()
 
-        if (firstName.isEmpty()) {
-            binding.etFirstName.error = "First name is required"
-            binding.etFirstName.requestFocus()
-            return
-        }
-        if (lastName.isEmpty()) {
-            binding.etLastName.error = "Last name is required"
-            binding.etLastName.requestFocus()
-            return
-        }
-        if (email.isEmpty()) {
-            binding.etEmail.error = "Email is required"
-            binding.etEmail.requestFocus()
-            return
-        }
-        if (contactNo.isEmpty()) {
-            binding.etContactNo.error = "Contact number is required"
-            binding.etContactNo.requestFocus()
-            return
-        }
-        if (address.isEmpty()) {
-            binding.etAddress.error = "Address is required"
-            binding.etAddress.requestFocus()
-            return
-        }
-        if (city.isEmpty()) {
-            binding.etCity.error = "City is required"
-            binding.etCity.requestFocus()
-            return
-        }
-        if (speciality.isEmpty()) {
-            binding.etSpeciality.error = "Speciality is required"
-            binding.etSpeciality.requestFocus()
-            return
-        }
+        if (firstName.isEmpty()) { binding.etFirstName.error = "Required"; return }
+        if (lastName.isEmpty()) { binding.etLastName.error = "Required"; return }
+        if (email.isEmpty()) { binding.etEmail.error = "Required"; return }
+        if (contactNo.isEmpty()) { binding.etContactNo.error = "Required"; return }
+        if (address.isEmpty()) { binding.etAddress.error = "Required"; return }
+        if (city.isEmpty()) { binding.etCity.error = "Required"; return }
+        if (speciality.isEmpty()) { binding.etSpeciality.error = "Required"; return }
         if (dobString.isEmpty()) {
-            Toast.makeText(requireContext(), "Please select date of birth", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Please select DOB", Toast.LENGTH_SHORT).show()
             return
         }
 
         setLoading(true)
 
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val dobDate = try {
-            dateFormat.parse(dobString)
+            SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(dobString)
         } catch (e: Exception) {
-            Toast.makeText(requireContext(), "Invalid date format. Please use DD/MM/YYYY", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Invalid DOB format", Toast.LENGTH_SHORT).show()
             setLoading(false)
             return
         }
@@ -252,42 +182,38 @@ class TeacherAccountSettingsFragment : Fragment() {
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Profile updated successfully!", Toast.LENGTH_LONG).show()
                 setLoading(false)
-
-                // Log the updated data for debugging
-                println("Profile updated with data:")
-                println("First Name: $firstName")
-                println("Last Name: $lastName")
-                println("Email: $email")
-                println("Contact: $contactNo")
-                println("Address: $address")
-                println("City: $city")
-                println("Speciality: $speciality")
-                println("Gender: $gender")
             }
-            .addOnFailureListener { exception ->
-                Toast.makeText(requireContext(), "Failed to update profile: ${exception.message}", Toast.LENGTH_LONG).show()
-                exception.printStackTrace()
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Failed to update profile: ${it.message}", Toast.LENGTH_LONG).show()
+                it.printStackTrace()
                 setLoading(false)
             }
     }
 
+    private fun clearAllFields() {
+        binding.etFirstName.setText("")
+        binding.etLastName.setText("")
+        binding.etEmail.setText("")
+        binding.etContactNo.setText("")
+        binding.etAddress.setText("")
+        binding.etCity.setText("")
+        binding.etSpeciality.setText("")
+        binding.etDob.setText("")
+        binding.spinnerGender.setSelection(0)
+    }
+
     private fun logout() {
-        // Clear all saved login and user data
         val userPrefs = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
         val loginPrefs = requireActivity().getSharedPreferences("loginPrefs", Context.MODE_PRIVATE)
         userPrefs.edit().clear().apply()
         loginPrefs.edit().clear().apply()
 
-
         Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show()
 
-        // Start LoginActivity with closing others activities
         val intent = Intent(requireContext(), LoginActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         startActivity(intent)
-
-        // Finish the current activity that hosts this fragment
         requireActivity().finish()
     }
 

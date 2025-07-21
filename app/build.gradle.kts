@@ -7,6 +7,7 @@ plugins {
 android {
     namespace = "com.edustack.edustack"
     compileSdk = 34
+
     defaultConfig {
         applicationId = "com.edustack.edustack"
         minSdk = 30
@@ -51,7 +52,6 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
-    implementation("com.google.guava:guava:31.1-android")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
 
     // Firebase
@@ -60,7 +60,6 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.google.firebase:firebase-messaging-ktx")
-
 
     // CameraX
     implementation("androidx.camera:camera-core:1.3.1")
@@ -82,6 +81,10 @@ dependencies {
     // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4")
+    implementation(libs.firebase.messaging.ktx)
+
+    // Google Guava
+    implementation("com.google.guava:guava:31.1-android")
 
     // Testing
     testImplementation(libs.junit)
