@@ -13,10 +13,10 @@ class ClassAdapter(private val classList: List<ClassItem>,
     RecyclerView.Adapter<ClassAdapter.ClassViewHolder>() {
 
     inner class ClassViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txtClassName: TextView = itemView.findViewById(R.id.txtClassName)
-        val txtDescription: TextView = itemView.findViewById(R.id.txtDescription)
-        val txtTime: TextView = itemView.findViewById(R.id.txtTime)
-        val txtWeekDay: TextView = itemView.findViewById(R.id.txtWeekDay)
+//        val txtClassName: TextView = itemView.findViewById(R.id.txtClassName)
+//        val txtDescription: TextView = itemView.findViewById(R.id.txtDescription)
+//        val txtTime: TextView = itemView.findViewById(R.id.txtTime)
+//        val txtWeekDay: TextView = itemView.findViewById(R.id.txtWeekDay)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassViewHolder {
@@ -27,10 +27,10 @@ class ClassAdapter(private val classList: List<ClassItem>,
 
     override fun onBindViewHolder(holder: ClassViewHolder, position: Int) {
         val currentItem = classList[position]
-        holder.txtClassName.text = currentItem.name
-        holder.txtDescription.text = currentItem.description
-        holder.txtTime.text = "${currentItem.startTime} - ${currentItem.endTime}"
-        holder.txtWeekDay.text = currentItem.weekDay
+//        holder.txtClassName.text = currentItem.name
+//        holder.txtDescription.text = currentItem.description
+//        holder.txtTime.text = "${currentItem.startTime} - ${currentItem.endTime}"
+//        holder.txtWeekDay.text = currentItem.weekDay
 
         holder.itemView.setOnClickListener {
             onItemClick(currentItem)

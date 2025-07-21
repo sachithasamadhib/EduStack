@@ -1,19 +1,14 @@
 package com.edustack.edustack
 
 import admin_accounts
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.edustack.edustack.databinding.ActivityAdminMenuBinding
 
 class AdminMenu : AppCompatActivity() {
-    private lateinit var binding : ActivityAdminMenuBinding
+    private lateinit var binding: ActivityAdminMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

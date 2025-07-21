@@ -22,4 +22,77 @@
     <style name="Theme.Edustack.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Edustack.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Base application theme (Light) -->
+    <style name="Theme.EduStack" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/secondary_color</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:windowBackground">@color/background_light</item>
+
+        <!-- Text appearances -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.EduStack.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.EduStack.Headline2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.EduStack.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.EduStack.Body2</item>
+    </style>
+
+    <!-- Dark theme -->
+    <style name="Theme.EduStack.Dark" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/secondary_color</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+
+        <!-- Text appearances for dark theme -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.EduStack.Headline1.Dark</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.EduStack.Headline2.Dark</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.EduStack.Body1.Dark</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.EduStack.Body2.Dark</item>
+    </style>
+
+    <!-- Text Appearances -->
+    <style name="TextAppearance.EduStack.Headline1" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.EduStack.Headline1.Dark">
+        <item name="android:textColor">@color/text_primary_dark</item>
+    </style>
+
+    <style name="TextAppearance.EduStack.Headline2" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.EduStack.Headline2.Dark">
+        <item name="android:textColor">@color/text_primary_dark</item>
+    </style>
+
+    <style name="TextAppearance.EduStack.Body1" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.EduStack.Body1.Dark">
+        <item name="android:textColor">@color/text_primary_dark</item>
+    </style>
+
+    <style name="TextAppearance.EduStack.Body2" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.EduStack.Body2.Dark">
+        <item name="android:textColor">@color/text_secondary_dark</item>
+    </style>
 </resources>

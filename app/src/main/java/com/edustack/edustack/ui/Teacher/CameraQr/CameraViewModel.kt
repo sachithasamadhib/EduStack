@@ -69,12 +69,12 @@ class CameraViewModel : ViewModel() {
 
     private fun getCurrentCalendarId(): String {
 
-        return "1"
+        return "LVZsDokI5VCu9R0rvHGK"
     }
 
     private fun getCurrentCourseId(): String {
 
-        return "1"
+        return "TRokaIkRl7lmfV4yNCb5"
     }
 
     fun clearScanResult() {

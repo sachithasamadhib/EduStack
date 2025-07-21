@@ -19,6 +19,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Edustack">
 
+        <activity
+            android:name=".ui.Teacher.Classes.AddClassActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.Teacher.Classes.FilePickerActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.Teacher.Classes.CancelClassActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CancelClassActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CancelClass"
+            android:exported="false" />
+
         <!-- Activity: Notifications -->
         <activity
             android:name=".Notifications"
@@ -59,16 +79,16 @@
         <activity
             android:name=".Students_MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Edustack.NoActionBar"
             android:label=""
+            android:theme="@style/Theme.Edustack.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
 
         <!-- Optional: Teacher Activity -->
         <activity
             android:name=".TeacherActivity"
             android:exported="true"
-            android:theme="@style/Theme.Edustack.NoActionBar"
             android:label=""
+            android:theme="@style/Theme.Edustack.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
 
         <!-- Splash Screen -->
