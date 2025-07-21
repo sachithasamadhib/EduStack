@@ -31,13 +31,13 @@
             android:name=".ui.Teacher.Classes.CancelClassActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".CancelClassActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".CancelClassActivity"-->
+<!--            android:exported="false" />-->
 
-        <activity
-            android:name=".CancelClass"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".CancelClass"-->
+<!--            android:exported="false" />-->
 
         <!-- Activity: Notifications -->
         <activity

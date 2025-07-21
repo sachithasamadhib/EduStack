@@ -269,8 +269,11 @@ class SettingsFragment : Fragment() {
             .setTitle("Logout")
             .setMessage("Are you sure you want to logout?")
             .setPositiveButton("Logout") { _, _ ->
-                // TODO: Implement logout functionality
-                Toast.makeText(requireContext(), "Logout functionality will be implemented", Toast.LENGTH_LONG).show()
+                // Implement logout functionality
+                val intent = Intent(requireContext(), com.edustack.edustack.LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                requireActivity().finish()
             }
             .setNegativeButton("Cancel", null)
             .show()

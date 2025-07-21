@@ -173,15 +173,16 @@ class StudentRepository {
             
             snapshot.documents.mapNotNull { document ->
                 Assignment(
-                    id = document.id,
-                    courseId = document.getString("CourseID") ?: "",
+                    assignmentID = document.id,
+                    courseID = document.getString("CourseID") ?: "",
                     title = document.getString("Title") ?: "",
                     description = document.getString("Description") ?: "",
-                    handOutDate = document.getTimestamp("HandOutDate"),
-                    handInDate = document.getTimestamp("HandInDate"),
-                    date = document.getTimestamp("date"),
-                    teacherId = document.getString("TeacherID") ?: "",
-                    status = document.getBoolean("Status") ?: true
+                    handOutDate = document.getTimestamp("HandOutDate")?.seconds?.times(1000) ?: 0L,
+                    handInDate = document.getTimestamp("HandInDate")?.seconds?.times(1000) ?: 0L,
+                    date = document.getTimestamp("date")?.seconds?.times(1000) ?: 0L,
+                    teacherID = document.getString("TeacherID") ?: "",
+                    status = document.getBoolean("Status") ?: true,
+                    assignmentMaterialLink = "" // Add if you have this field in Firestore
                 )
             }
         } catch (e: Exception) {
@@ -194,7 +195,7 @@ class StudentRepository {
     suspend fun getAssignmentsWithMaterials(courseId: String): List<Pair<Assignment, List<AssignmentMaterial>>> {
         val assignments = getAssignmentsForCourse(courseId)
         return assignments.map { assignment ->
-            val materials = getAssignmentMaterials(assignment.id)
+            val materials = getAssignmentMaterials(assignment.assignmentID)
             assignment to materials
         }
     }
@@ -280,14 +281,14 @@ class StudentRepository {
             snapshot.documents.mapNotNull { document ->
                 CalendarEvent(
                     id = document.id,
-                    courseId = document.getString("CourceID") ?: "",
-                    date = document.getTimestamp("Date"),
-                    startTime = document.getTimestamp("StartTime"),
-                    endTime = document.getTimestamp("EndTime"),
-                    hallId = document.getString("HallID") ?: "",
+                    courseID = document.getString("CourceID") ?: "",
+                    date = document.getTimestamp("Date")?.seconds?.times(1000) ?: 0L,
+                    startTime = document.getTimestamp("StartTime")?.seconds?.times(1000) ?: 0L,
+                    endTime = document.getTimestamp("EndTime")?.seconds?.times(1000) ?: 0L,
+                    hallID = document.getString("HallID") ?: "",
                     status = document.getBoolean("Status") ?: true,
                     courseName = "", // Will be populated separately if needed
-                    hallName = "Hall ${document.getString("HallID") ?: ""}" // Generate hall name from hall ID
+                    hallName = "Hall ${document.getString("HallID") ?: ""}"
                 )
             }
         } catch (e: Exception) {
@@ -307,12 +308,11 @@ class StudentRepository {
             snapshot.documents.mapNotNull { document ->
                 val link = document.getString("Link") ?: ""
                 CourseMaterial(
-                    id = document.id,
                     courseId = document.getString("CourseID") ?: "",
                     link = link,
-                    date = document.getTimestamp("Date"),
-                    title = extractTitleFromLink(link), // Extract title from link
-                    fileType = extractFileTypeFromLink(link) // Extract file type from link
+                    date = document.getTimestamp("Date")?.seconds?.times(1000) ?: 0L,
+                    title = extractTitleFromLink(link),
+                    fileType = extractFileTypeFromLink(link)
                 )
             }
         } catch (e: Exception) {
@@ -358,9 +358,10 @@ class StudentRepository {
                     id = document.id,
                     title = document.getString("Title") ?: "",
                     description = document.getString("Description") ?: "",
-                    date = document.getTimestamp("Date"),
-                    personId = document.getString("PersonID") ?: "",
-                    type = document.getString("Type") ?: ""
+                    date = document.getTimestamp("Date")?.seconds?.times(1000) ?: 0L,
+                    personID = document.getString("PersonID") ?: "",
+                    type = document.getString("Type") ?: "",
+                    isRead = false // Default, update if you have this field
                 )
             }
         } catch (e: Exception) {
@@ -383,12 +384,11 @@ class StudentRepository {
             
             snapshot.documents.mapNotNull { document ->
                 ResultsItem(
-                    id = document.id,
-                    assignmentId = document.getString("AssignmentID") ?: "",
+                    assignmentID = document.getString("AssignmentID") ?: "",
                     courseId = document.getString("CourseID") ?: "",
                     studentId = document.getString("StudentID") ?: "",
-                    marks = document.getLong("Marks")?.toInt() ?: 0,
-                    date = document.getTimestamp("Date")
+                    marks = document.getLong("Marks")?.toString() ?: "",
+                    date = document.getTimestamp("Date")?.toDate()?.toString() ?: ""
                 )
             }
         } catch (e: Exception) {
@@ -408,12 +408,11 @@ class StudentRepository {
             
             snapshot.documents.mapNotNull { document ->
                 ResultsItem(
-                    id = document.id,
-                    assignmentId = document.getString("AssignmentID") ?: "",
+                    assignmentID = document.getString("AssignmentID") ?: "",
                     courseId = document.getString("CourseID") ?: "",
                     studentId = document.getString("StudentID") ?: "",
-                    marks = document.getLong("Marks")?.toInt() ?: 0,
-                    date = document.getTimestamp("Date")
+                    marks = document.getLong("Marks")?.toString() ?: "",
+                    date = document.getTimestamp("Date")?.toDate()?.toString() ?: ""
                 )
             }
         } catch (e: Exception) {
