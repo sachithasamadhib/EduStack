@@ -490,7 +490,7 @@ class StudentRepository {
                 StudentAccount(
                     password = document.getString("Password") ?: "",
                     status = statusString,
-                    studentID = document.getString("StudentID") ?: "",
+                    studentID = document.id, // Use document ID as studentID
                     studentInfoID = document.getString("StudentInfoID") ?: ""
                 )
             } else null
