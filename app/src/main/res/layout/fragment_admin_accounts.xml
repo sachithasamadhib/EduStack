@@ -11,18 +11,47 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40px"
-            android:background="#471396"
-            android:padding="26px"
-            android:text="Accounts"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20dp"
             android:layout_marginBottom="4dp"
-            android:textStyle="bold" />
+            android:background="#471396">
+
+            <!-- Notification button on left -->
+            <ImageButton
+                android:id="@+id/notificationButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/push_notifications_svgrepo_com"
+                android:scaleType="fitCenter"
+                android:padding="6dp"
+                android:layout_alignParentStart="true"/>
+
+            <!-- Centered Accounts text -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="26px"
+                android:paddingBottom="26px"
+                android:text="Accounts"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/notificationButton"
+                android:layout_toStartOf="@+id/rightSpacer"/>
+
+            <!-- Invisible spacer for symmetry -->
+            <Space
+                android:id="@+id/rightSpacer"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,7 +80,7 @@
                     android:padding="20dp">
 
                     <TextView
-                        android:id="@+id/title"
+                        android:id="@+id/studentCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:letterSpacing="0.02"
@@ -285,6 +314,7 @@
                                     android:backgroundTint="#6200EA"
                                     app:cornerRadius="6dp"
                                     android:text="Edit"
+                                    android:id="@+id/editStudentAcc"
                                     android:textColor="@android:color/white"
                                     android:textSize="12sp"
                                     android:textAllCaps="false"
@@ -313,6 +343,7 @@
                                     android:backgroundTint="#03A9F4"
                                     app:cornerRadius="6dp"
                                     android:text="View"
+                                    android:id="@+id/studentInfoView"
                                     android:textColor="@android:color/white"
                                     android:textSize="12sp"
                                     android:textAllCaps="false"
@@ -584,7 +615,6 @@
                             </LinearLayout>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
-
 
                 </LinearLayout>
             </ScrollView>

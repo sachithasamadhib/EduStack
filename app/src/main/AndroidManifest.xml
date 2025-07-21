@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,35 +19,81 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Edustack">
 
-        <!-- Use intent-filter to change the startup interface -->
-        <!-- I changed android:name to the default one had conflicts -->
+        <activity
+            android:name=".ui.Teacher.Classes.AddClassActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.Teacher.Classes.FilePickerActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.Teacher.Classes.CancelClassActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CancelClassActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CancelClass"
+            android:exported="false" />
+
+        <!-- Activity: Notifications -->
+        <activity
+            android:name=".Notifications"
+            android:exported="false"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: Class Calendar -->
+        <activity
+            android:name=".ClassCalender"
+            android:exported="false"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: Admin Menu -->
+        <activity
+            android:name=".AdminMenu"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: Login -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.Edustack.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.Edustack.NoActionBar" />
 
-<!--        <activity-->
-<!--            android:name=".TeacherActivity"-->
-<!--            android:exported="true"-->
-<!--            android:theme="@style/Theme.Edustack.NoActionBar" >-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-
+        <!-- Activity: All Reports -->
         <activity
             android:name=".AllReports"
             android:exported="false"
             android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: All Classes -->
         <activity
             android:name=".AllClasses"
             android:exported="false"
             android:theme="@style/Theme.Edustack.NoActionBar" />
 
+        <!-- Main Activity (Students) -->
         <activity
             android:name=".Students_MainActivity"
+            android:exported="true"
+            android:label=""
+            android:theme="@style/Theme.Edustack.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Optional: Teacher Activity -->
+        <activity
+            android:name=".TeacherActivity"
+            android:exported="true"
+            android:label=""
+            android:theme="@style/Theme.Edustack.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Splash Screen -->
+        <activity
+            android:name=".splashscreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Edustack.NoActionBar"
             android:label=""
@@ -51,12 +104,6 @@
             </intent-filter>
         </activity>
 
-
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

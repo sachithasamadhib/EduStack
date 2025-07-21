@@ -7,4 +7,40 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="logout_red">#E53E3E</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="primaryColor">#1976D2</color>
+    <color name="primaryDarkColor">#004BA0</color>
+
+    <!-- Light theme colors -->
+    <color name="primary_color">#6366F1</color>
+    <color name="primary_variant">#4F46E5</color>
+    <color name="secondary_color">#10B981</color>
+
+    <!-- Text colors for light theme -->
+    <color name="text_primary">#1F2937</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_tertiary">#9CA3AF</color>
+
+    <!-- Text colors for dark theme -->
+    <color name="text_primary_dark">#F9FAFB</color>
+    <color name="text_secondary_dark">#D1D5DB</color>
+    <color name="text_tertiary_dark">#9CA3AF</color>
+
+    <!-- Status colors -->
+    <color name="green_500">#10B981</color>
+    <color name="red_500">#EF4444</color>
+    <color name="orange_500">#F59E0B</color>
+    <color name="gray_500">#6B7280</color>
+    <color name="blue_500">#3B82F6</color>
+
+    <!-- Background colors -->
+    <color name="background_light">#FFFFFF</color>
+    <color name="background_dark">#1F2937</color>
+    <color name="surface_light">#F9FAFB</color>
+    <color name="surface_dark">#374151</color>
+
+    <!-- Card colors -->
+    <color name="card_background_light">#FFFFFF</color>
+    <color name="card_background_dark">#374151</color>
 </resources>
