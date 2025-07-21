@@ -69,18 +69,20 @@
             android:exported="true"
             android:theme="@style/Theme.Edustack.NoActionBar"
             android:label=""
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Splash Screen -->
+        <activity
+            android:name=".splashscreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar"
+            android:label=""
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Splash Screen -->
-        <activity
-            android:name=".splashscreenActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Edustack.NoActionBar" />
 
     </application>
 

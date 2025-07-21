@@ -81,6 +81,7 @@ dependencies {
     // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4")
+    implementation(libs.firebase.messaging.ktx)
 
     // Google Guava
     implementation("com.google.guava:guava:31.1-android")

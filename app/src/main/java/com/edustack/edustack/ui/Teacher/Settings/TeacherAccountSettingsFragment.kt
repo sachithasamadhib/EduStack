@@ -46,7 +46,6 @@ class TeacherAccountSettingsFragment : Fragment() {
     }
 
     private fun loadUserData() {
-        // Load user data from SharedPreferences or database
         val sharedPref = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
 
         binding.etFullName.setText(sharedPref.getString("full_name", ""))
@@ -77,26 +76,29 @@ class TeacherAccountSettingsFragment : Fragment() {
     }
 
     private fun changePassword() {
-        // Implement change password functionality
         Toast.makeText(requireContext(), "Change password clicked", Toast.LENGTH_SHORT).show()
-        // You can navigate to a change password fragment or show a dialog
     }
 
     private fun logout() {
-        // Clear user session
-        val sharedPref = requireActivity().getSharedPreferences("user_session", Context.MODE_PRIVATE)
-        with(sharedPref.edit()) {
-            clear()
-            apply()
-        }
+        // Clear all saved login and user data
+        val userPrefs = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val loginPrefs = requireActivity().getSharedPreferences("loginPrefs", Context.MODE_PRIVATE)
+        userPrefs.edit().clear().apply()
+        loginPrefs.edit().clear().apply()
 
-        // Navigate to login activity
+
         Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show()
-        // Add your login activity navigation here
-        // val intent = Intent(requireContext(), LoginActivity::class.java)
-        // startActivity(intent)
-        // requireActivity().finish()
+
+        // Start LoginActivity with closing others activities
+        val intent = Intent(requireContext(), LoginActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        startActivity(intent)
+
+        // Finish the current activity that hosts this fragment
+        requireActivity().finish()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

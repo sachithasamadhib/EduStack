@@ -14,14 +14,17 @@ import com.edustack.edustack.databinding.ActivityAdminMenuBinding
 
 class AdminMenu : AppCompatActivity() {
     private lateinit var binding : ActivityAdminMenuBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityAdminMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         if (savedInstanceState == null) {
             replaceFragment(admin_accounts())
         }
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.admin_home -> replaceFragment(admin_accounts())
@@ -29,13 +32,13 @@ class AdminMenu : AppCompatActivity() {
                 R.id.admin_classes -> replaceFragment(admin_classes())
                 R.id.admin_reports -> replaceFragment(admin_reports())
                 R.id.admin_addClasses -> replaceFragment(admin_assign())
-                else -> {
-                }
+                else -> { }
             }
             true
         }
     }
-    private fun replaceFragment(fragment : Fragment){
+
+    private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayoutID, fragment)
