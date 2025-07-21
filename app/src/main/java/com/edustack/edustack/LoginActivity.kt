@@ -12,8 +12,5 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        val btnGotoMain = findViewById<Button>(R.id.btnGotoMain)
-        btnGotoMain.setOnClickListener {
-        }
     }
 }
