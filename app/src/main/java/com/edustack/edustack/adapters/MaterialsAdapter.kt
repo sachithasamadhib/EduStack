@@ -10,7 +10,7 @@ import java.util.Date
 import java.util.Locale
 
 class MaterialsAdapter(
-    private val materialsList: List<CourseMaterial>,
+    private var materialsList: List<CourseMaterial>,
     private val onMaterialClick: (CourseMaterial) -> Unit
 ) : RecyclerView.Adapter<MaterialsAdapter.MaterialsViewHolder>() {
 
@@ -61,4 +61,9 @@ class MaterialsAdapter(
     }
 
     override fun getItemCount(): Int = materialsList.size
+
+    fun updateData(newList: List<CourseMaterial>) {
+        materialsList = newList
+        notifyDataSetChanged()
+    }
 }
