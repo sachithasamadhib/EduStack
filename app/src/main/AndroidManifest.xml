@@ -61,8 +61,7 @@
             android:exported="true"
             android:theme="@style/Theme.Edustack.NoActionBar"
             android:label=""
-            android:windowSoftInputMode="adjustResize">
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
 
         <!-- Optional: Teacher Activity -->
         <activity
@@ -82,7 +81,7 @@
             android:name=".splashscreenActivity"
             android:exported="true"
             android:theme="@style/Theme.Edustack.NoActionBar" />
-            
+
     </application>
 
 </manifest>
