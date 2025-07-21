@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_classes">
+
+    <fragment
+        android:id="@+id/navigation_classes"
+        android:name="com.edustack.edustack.ui_Students.Classes.ClassesFragment"
+        android:label="@string/title_classes"
+        tools:layout="@layout/fragment_classes" >
+
+        <action
+            android:id="@+id/action_navigation_classes_to_courseDetailFragment"
+            app:destination="@id/CourseDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.edustack.edustack.ui_Students.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_calender"
+        android:name="com.edustack.edustack.ui_Students.Calender.CalenderFragment"
+        android:label="@string/title_calender"
+        tools:layout="@layout/fragment_calender" />
+
+    <fragment
+        android:id="@+id/navigation_attendance"
+        android:name="com.edustack.edustack.ui_Students.Attendance.AttendanceFragment"
+        android:label="@string/title_attendance"
+        tools:layout="@layout/fragment_attendance" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.edustack.edustack.ui_Students.Settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/CourseDetailFragment"
+        android:name="com.edustack.edustack.ui_Students.Classes.subFragments.CourseDetailFragment"
+        android:label="Course Details">
+
+        <action
+            android:id="@+id/action_CourseDetailFragment_to_AttendanceFragment"
+            app:destination="@id/AttendanceFragment" />
+
+        <action
+            android:id="@+id/action_CourseDetailFragment_to_ResultsFragment"
+            app:destination="@id/ResultsFragment" />
+
+        <action
+            android:id="@+id/action_CourseDetailFragment_to_MaterialsFragment"
+            app:destination="@id/MaterialsFragment" />
+
+        <action
+            android:id="@+id/action_CourseDetailFragment_to_AssignmentsFragment"
+            app:destination="@id/AssignmentsFragment" />
+
+        <argument
+            android:name="id"
+            app:argType="string" />
+
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AttendanceFragment"
+        android:name="com.edustack.edustack.ui_Students.Classes.subFragments.AttendanceFragment"
+        android:label="Attendance">
+
+        <argument
+            android:name="courseId"
+            app:argType="string" />
+
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ResultsFragment"
+        android:name="com.edustack.edustack.ui_Students.Classes.subFragments.ResultsFragment"
+        android:label="Results">
+
+        <argument
+            android:name="courseId"
+            app:argType="string" />
+
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/MaterialsFragment"
+        android:name="com.edustack.edustack.ui_Students.Classes.subFragments.MaterialsFragment"
+        android:label="Materials">
+
+        <argument
+            android:name="courseId"
+            app:argType="string" />
+
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AssignmentsFragment"
+        android:name="com.edustack.edustack.ui_Students.Classes.subFragments.AssignmentsFragment"
+        android:label="Assignments">
+
+        <argument
+            android:name="courseId"
+            app:argType="string" />
+
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

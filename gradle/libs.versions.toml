@@ -16,7 +16,8 @@ activity = "1.8.0"
 googleGmsGoogleServices = "4.4.3"
 firebaseDatabase = "21.0.0"
 firebaseFirestore = "25.1.4"
-firebase-bom = "32.8.1"  #
+firebase-bom = "32.8.1"
+firebaseMessagingKtx = "24.1.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,9 +38,9 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 firebase-auth = { module = "com.google.firebase:firebase-auth-ktx" }
 firebase-messaging = { module = "com.google.firebase:firebase-messaging-ktx" }
 androidx-security-crypto = { module = "androidx.security:security-crypto", version = "1.1.0-alpha06" }
+firebase-messaging-ktx = { group = "com.google.firebase", name = "firebase-messaging-ktx", version.ref = "firebaseMessagingKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
-

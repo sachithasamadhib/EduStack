@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,40 +19,69 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Edustack">
 
-        <!-- Use intent-filter to change the startup interface -->
-        <!--
-        <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-         -->
+        <!-- Activity: Notifications -->
         <activity
-
-            android:theme="@style/Theme.Edustack.NoActionBar"
             android:name=".Notifications"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: Class Calendar -->
         <activity
             android:name=".ClassCalender"
             android:exported="false"
             android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: Admin Menu -->
         <activity
             android:name=".AdminMenu"
             android:exported="true"
-            android:theme="@style/Theme.Edustack.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/Theme.Edustack.NoActionBar" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <!-- Activity: Login -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: All Reports -->
         <activity
             android:name=".AllReports"
             android:exported="false"
             android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Activity: All Classes -->
         <activity
             android:name=".AllClasses"
             android:exported="false"
             android:theme="@style/Theme.Edustack.NoActionBar" />
+
+        <!-- Main Activity (Students) -->
+        <activity
+            android:name=".Students_MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar"
+            android:label=""
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Optional: Teacher Activity -->
+        <activity
+            android:name=".TeacherActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar"
+            android:label=""
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Splash Screen -->
+        <activity
+            android:name=".splashscreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Edustack.NoActionBar" />
+
     </application>
 
 </manifest>
