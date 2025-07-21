@@ -12,12 +12,18 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.ImageButton
 import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.edustack.edustack.Controller.AccountDetails
+import com.edustack.edustack.Controller.GetStudentCount
 import com.edustack.edustack.Notifications
 import com.edustack.edustack.R
 import com.edustack.edustack.databinding.ActivityAdminMenuBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.coroutines.launch
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -179,10 +185,47 @@ class admin_accounts : Fragment() {
 
         // Set click listener to show dropdown
         if (accountTypeDropdown != null) {
-            accountTypeDropdown.setOnClickListener {
-                val selectedItem: String = accountTypeDropdown.text.toString()
+            accountTypeDropdown.setOnItemClickListener { _, _, position, _ ->
+//                Toast.makeText(requireContext(), accountTypes[position], Toast.LENGTH_SHORT).show()
+                if(accountTypes[position] == "Student"){
+                    //get student acc details
+                    val accountDetailsViewModel by viewModels<AccountDetails>()
+                    lifecycleScope.launch {
+                        try{
+                            val list1 = accountDetailsViewModel.getStudentAccDetails()
+
+                        }catch (e : Exception){
+                            Toast.makeText(
+                                requireContext(),
+                                "Error occured when setting data: ${e.toString()}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }else if(accountTypes[position] == "Teacher"){
+
+                }
             }
         }
+        //setup students count UI
+         val studentCountViewModel by viewModels<GetStudentCount>()
+        lifecycleScope.launch {
+            try{
+                val stuCount = studentCountViewModel.getStudentCount()
+                val stuCountText = view.findViewById<TextView>(R.id.studentCount)
+                val teacherCountText = view.findViewById<TextView>(R.id.teacherCountAmu)
+                stuCountText.text = stuCount.toString()
+                teacherCountText.text = studentCountViewModel.getTeacherCount().toString()
+            }catch(e : Exception){
+                Toast.makeText(
+                    requireContext(),
+                    "Error occured when setting data: ${e.toString()}",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            }
+        }
+
     }
     companion object {
         @JvmStatic
