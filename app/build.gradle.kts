@@ -6,15 +6,13 @@ plugins {
 
 android {
     namespace = "com.edustack.edustack"
-    compileSdk = 36
-
+    compileSdk = 34
     defaultConfig {
         applicationId = "com.edustack.edustack"
         minSdk = 30
-        targetSdk = 36
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -43,7 +41,7 @@ android {
 }
 
 dependencies {
-    // AndroidX core
+    // AndroidX & Jetpack
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -53,12 +51,16 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
+    implementation("com.google.guava:guava:31.1-android")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
 
     // Firebase
-    implementation("com.google.firebase:firebase-auth:22.3.0")
-    implementation("com.google.firebase:firebase-firestore:24.10.0")
-    implementation("com.google.firebase:firebase-firestore-ktx:24.10.0")
-    implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-storage-ktx")
+    implementation("com.google.firebase:firebase-messaging-ktx")
+
 
     // CameraX
     implementation("androidx.camera:camera-core:1.3.1")
@@ -66,26 +68,18 @@ dependencies {
     implementation("androidx.camera:camera-lifecycle:1.3.1")
     implementation("androidx.camera:camera-view:1.3.1")
 
-    // ML Kit Barcode Scanning
+    // ML Kit
     implementation("com.google.mlkit:barcode-scanning:17.2.0")
 
-    // QR Code generation
+    // ZXing (QR code generation and scanning)
     implementation("com.google.zxing:core:3.5.2")
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
-
-    // Permissions
-    implementation("androidx.activity:activity-ktx:1.8.2")
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
 
     // RecyclerView & CardView
     implementation("androidx.recyclerview:recyclerview:1.3.0")
     implementation("androidx.cardview:cardview:1.0.0")
 
-    // ViewModel and LiveData (explicit versions)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
-
-    // Coroutines
+    // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4")
     implementation(libs.firebase.messaging.ktx)
