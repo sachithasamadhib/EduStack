@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class AttendanceAdapter(
-    private val attendanceList: List<AttendanceItem>
+    private var attendanceList: List<AttendanceItem>
 ) : RecyclerView.Adapter<AttendanceAdapter.AttendanceViewHolder>() {
 
     class AttendanceViewHolder(private val binding: ItemAttendanceBinding) :
@@ -51,4 +51,9 @@ class AttendanceAdapter(
     }
 
     override fun getItemCount(): Int = attendanceList.size
+
+    fun updateData(newList: List<AttendanceItem>) {
+        attendanceList = newList
+        notifyDataSetChanged()
+    }
 }
