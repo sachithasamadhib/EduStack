@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class ResultsAdapter(
-    private val resultsList: List<ResultsItem>
+    private var resultsList: List<ResultsItem>
 ) : RecyclerView.Adapter<ResultsAdapter.ResultsViewHolder>() {
 
     class ResultsViewHolder(private val binding: ItemResultBinding) :
@@ -68,4 +68,9 @@ class ResultsAdapter(
     }
 
     override fun getItemCount(): Int = resultsList.size
+
+    fun updateData(newList: List<ResultsItem>) {
+        resultsList = newList
+        notifyDataSetChanged()
+    }
 }
