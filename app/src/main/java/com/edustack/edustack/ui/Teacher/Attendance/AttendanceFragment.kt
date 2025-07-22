@@ -18,7 +18,8 @@ class AttendanceFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var attendanceViewModel: AttendanceViewModel
-    private lateinit var attendanceAdapter: AttendanceAdapter
+    private lateinit var studentAttendanceAdapter: StudentAttendanceAdapter
+
     private lateinit var courseSpinner: Spinner
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
@@ -55,13 +56,13 @@ class AttendanceFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        attendanceAdapter = AttendanceAdapter(emptyList()) { record, position ->
+        studentAttendanceAdapter = StudentAttendanceAdapter(emptyList()) { record, position ->
             showStatusDialog(record)
         }
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = attendanceAdapter
+            adapter = studentAttendanceAdapter
         }
     }
 
@@ -105,7 +106,7 @@ class AttendanceFragment : Fragment() {
             } else {
                 recyclerView.visibility = View.VISIBLE
                 emptyView.visibility = View.GONE
-                attendanceAdapter.updateAttendance(attendanceList)
+                studentAttendanceAdapter.updateAttendance(attendanceList)
             }
         }
 

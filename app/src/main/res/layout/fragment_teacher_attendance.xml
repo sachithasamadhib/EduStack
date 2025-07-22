@@ -87,7 +87,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_attendance" />
+        tools:listitem="@layout/student_item_attendance" />
 
     <TextView
         android:id="@+id/tv_empty_view"
