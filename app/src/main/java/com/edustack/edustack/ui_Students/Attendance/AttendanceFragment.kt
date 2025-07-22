@@ -9,9 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.edustack.edustack.databinding.FragmentAttendanceBinding
 import com.edustack.edustack.model.StudentAccount
+import com.edustack.edustack.repository.StudentRepository
 import com.edustack.edustack.utils.QRCodeGenerator
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -36,27 +39,41 @@ class AttendanceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadStudentData()
+        // Commented out dummy data usage
+        // loadStudentData()
+        // setupUI()
+
+        // Firebase integration: Load student account and set up UI
+        val repository = StudentRepository()
+        lifecycleScope.launch {
+            val studentAccount = repository.getStudentAccount()
+            if (studentAccount != null) {
+                currentStudentID = studentAccount.studentID
+                generateAttendanceQRCode()
+            } else {
+                Toast.makeText(requireContext(), "Failed to load student account", Toast.LENGTH_SHORT).show()
+            }
+        }
         setupUI()
     }
 
-    private fun loadStudentData() {
-        // TODO: Replace with Firebase data
-        val dummyStudentAccount = getDummyStudentAccount()
-        currentStudentID = dummyStudentAccount.studentID
+    // Commented out dummy data function
+    // private fun loadStudentData() {
+    //     // TODO: Replace with Firebase data
+    //     val dummyStudentAccount = getDummyStudentAccount()
+    //     currentStudentID = dummyStudentAccount.studentID
+    //     // Generate QR code for attendance
+    //     generateAttendanceQRCode()
+    // }
 
-        // Generate QR code for attendance
-        generateAttendanceQRCode()
-    }
-
-    private fun getDummyStudentAccount(): StudentAccount {
-        return StudentAccount(
-            password = "20015646",
-            status = "ACTIVE",
-            studentID = "user1234",
-            studentInfoID = "1"
-        )
-    }
+    // private fun getDummyStudentAccount(): StudentAccount {
+    //     return StudentAccount(
+    //         password = "20015646",
+    //         status = "ACTIVE",
+    //         studentID = "user1234",
+    //         studentInfoID = "1"
+    //     )
+    // }
 
     private fun generateAttendanceQRCode() {
         try {

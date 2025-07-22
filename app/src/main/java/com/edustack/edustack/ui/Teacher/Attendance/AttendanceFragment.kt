@@ -19,6 +19,7 @@ class AttendanceFragment : Fragment() {
 
     private lateinit var attendanceViewModel: AttendanceViewModel
     private lateinit var studentAttendanceAdapter: StudentAttendanceAdapter
+
     private lateinit var courseSpinner: Spinner
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
@@ -32,8 +33,6 @@ class AttendanceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         attendanceViewModel = ViewModelProvider(this)[AttendanceViewModel::class.java]
-
-        // Use the appropriate layout file name
         _binding = FragmentTeacherAttendanceBinding.inflate(inflater, container, false)
         val root: View = binding.root
 

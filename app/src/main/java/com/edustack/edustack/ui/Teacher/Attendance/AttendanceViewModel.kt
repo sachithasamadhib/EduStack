@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -41,7 +40,6 @@ class AttendanceViewModel : ViewModel() {
 
     private fun loadTeacherCourses() {
         _loading.value = true
-
         val teacherId = "PBZSdZadxy0D9ovdcJ8x"
 
         db.collection("Courses")
@@ -77,7 +75,6 @@ class AttendanceViewModel : ViewModel() {
 
     private fun loadAttendanceForCourse(courseId: String) {
         _loading.value = true
-        val today = Calendar.getInstance()
         val startOfDay = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, 0)
             set(Calendar.MINUTE, 0)
@@ -125,6 +122,7 @@ class AttendanceViewModel : ViewModel() {
                     _loading.value = false
                     return@addOnSuccessListener
                 }
+
                 db.collection("Attendance")
                     .whereEqualTo("courseID", courseId)
                     .whereEqualTo("calenderID", calendarId)
@@ -172,7 +170,6 @@ class AttendanceViewModel : ViewModel() {
                             val firstName = infoDoc.getString("Fname") ?: ""
                             val lastName = infoDoc.getString("Lname") ?: ""
                             val fullName = "$firstName $lastName"
-
                             val status = existingAttendance[studentId] ?: "absent"
 
                             val record = AttendanceRecord(
@@ -204,6 +201,7 @@ class AttendanceViewModel : ViewModel() {
             "studentID" to record.studentId,
             "timestamp" to System.currentTimeMillis()
         )
+
         db.collection("Attendance")
             .whereEqualTo("courseID", record.courseId)
             .whereEqualTo("calenderID", record.calendarId)

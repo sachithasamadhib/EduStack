@@ -37,7 +37,6 @@ class MaterialsAdapter(
 
         fun bind(materialUrl: String, position: Int) {
             textMaterialName.text = "Submission Material $position"
-
             buttonDownload.setOnClickListener {
                 onDownloadClick(materialUrl)
             }

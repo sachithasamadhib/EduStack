@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.edustack.edustack.R
 import com.edustack.edustack.model.ClassItem
 
-class ClassAdapter(private val classList: List<ClassItem>,
+class ClassAdapter(private var classList: List<ClassItem>,
                    private val onItemClick: (ClassItem) -> Unit) :
     RecyclerView.Adapter<ClassAdapter.ClassViewHolder>() {
 
@@ -38,4 +38,9 @@ class ClassAdapter(private val classList: List<ClassItem>,
     }
 
     override fun getItemCount(): Int = classList.size
+
+    fun updateData(newList: List<ClassItem>) {
+        classList = newList
+        notifyDataSetChanged()
+    }
 }
