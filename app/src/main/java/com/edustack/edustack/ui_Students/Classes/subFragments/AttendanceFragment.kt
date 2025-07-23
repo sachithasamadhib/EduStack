@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.edustack.edustack.adapters.AttendanceAdapter
 import com.edustack.edustack.databinding.FragmentClassAttendanceBinding
 import com.edustack.edustack.model.AttendanceItem
 import com.edustack.edustack.repository.StudentRepository
