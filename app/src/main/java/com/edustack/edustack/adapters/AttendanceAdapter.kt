@@ -9,13 +9,16 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class AttendanceAdapter(
-    private var attendanceList: List<AttendanceItem>
+    private var attendanceList: List<AttendanceItem>,
+    private val onItemClick: ((AttendanceItem) -> Unit)? = null // New callback
 ) : RecyclerView.Adapter<AttendanceAdapter.AttendanceViewHolder>() {
 
     class AttendanceViewHolder(private val binding: ItemAttendanceBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(attendance: AttendanceItem) {
+        fun bind(attendance: AttendanceItem, onItemClick: ((AttendanceItem) -> Unit)?) {
+            binding.studentNameText.text = attendance.studentName
+            binding.courseNameText.text = attendance.courseName
             binding.dateText.text = formatDate(attendance.date)
             binding.statusText.text = attendance.status
 
@@ -25,7 +28,23 @@ class AttendanceAdapter(
                 "absent" -> binding.statusText.setTextColor(0xFFF44336.toInt()) // Red
                 "late" -> binding.statusText.setTextColor(0xFFFF9800.toInt()) // Orange
             }
+
+            binding.root.setOnClickListener {
+                onItemClick?.invoke(attendance)
+            }
         }
+
+        // Old bind method for reference (commented out)
+        // fun bind(attendance: AttendanceItem) {
+        //     binding.dateText.text = formatDate(attendance.date)
+        //     binding.statusText.text = attendance.status
+        //     // Set status color based on attendance status
+        //     when (attendance.status.lowercase()) {
+        //         "present" -> binding.statusText.setTextColor(0xFF4CAF50.toInt()) // Green
+        //         "absent" -> binding.statusText.setTextColor(0xFFF44336.toInt()) // Red
+        //         "late" -> binding.statusText.setTextColor(0xFFFF9800.toInt()) // Orange
+        //     }
+        // }
 
         private fun formatDate(dateString: String): String {
             return try {
@@ -47,7 +66,7 @@ class AttendanceAdapter(
     }
 
     override fun onBindViewHolder(holder: AttendanceViewHolder, position: Int) {
-        holder.bind(attendanceList[position])
+        holder.bind(attendanceList[position], onItemClick)
     }
 
     override fun getItemCount(): Int = attendanceList.size
@@ -56,4 +75,7 @@ class AttendanceAdapter(
         attendanceList = newList
         notifyDataSetChanged()
     }
+
+    // Old constructor for reference (commented out)
+    // class AttendanceAdapter(private var attendanceList: List<AttendanceItem>) : RecyclerView.Adapter<AttendanceAdapter.AttendanceViewHolder>() { ... }
 }

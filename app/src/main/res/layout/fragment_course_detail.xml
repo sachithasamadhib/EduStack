@@ -1,73 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="15dp">
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="40dp"
+    android:fitsSystemWindows="true"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/courseTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:paddingHorizontal="40dp"
+        android:gravity="center"
         android:text="Course Title"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:translationX="85dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <!-- First row -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/materialsButton"
-        android:layout_width="180dp"
-        android:layout_height="140dp"
-        android:insetLeft="0dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:padding="12dp"
         android:text="Materials"
-        android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:translationY="186dp"
-        app:cornerRadius="12dp" />
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_materials"
+        app:iconGravity="top"
+        app:iconPadding="8dp"
+        app:layout_constraintBottom_toTopOf="@id/attendanceButton"
+        app:layout_constraintEnd_toStartOf="@id/assignmentsButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/courseTitle" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/assignmentsButton"
-        android:layout_width="180dp"
-        android:layout_height="140dp"
-        android:paddingLeft="10dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:padding="12dp"
         android:text="Assignments"
-        android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:translationX="195dp"
-        android:translationY="40dp"
-        app:cornerRadius="12dp"
-        app:iconPadding="10dp" />
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_assignments"
+        app:iconGravity="top"
+        app:iconPadding="8dp"
+        app:layout_constraintBottom_toTopOf="@id/resultsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/materialsButton"
+        app:layout_constraintTop_toBottomOf="@id/courseTitle" />
 
-    <Button
+    <!-- Second row -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/attendanceButton"
-        android:layout_width="180dp"
-        android:layout_height="140dp"
-        android:insetTop="9dp"
-        android:paddingRight="15dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="4dp"
+        android:padding="12dp"
         android:text="Attendance"
-        android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:translationY="40dp"
-        app:cornerRadius="12dp"
-        app:strokeColor="#0D0D0D" />
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_attendance"
+        app:iconGravity="top"
+        app:iconPadding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/resultsButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/materialsButton" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/resultsButton"
-        android:layout_width="180dp"
-        android:layout_height="140dp"
-        android:fontFamily="sans-serif-medium"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="4dp"
+        android:padding="12dp"
         android:text="Results"
-        android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:translationX="195dp"
-        android:translationY="186dp"
-        app:cornerRadius="12dp" />
-</FrameLayout>
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_results"
+        app:iconGravity="top"
+        app:iconPadding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/attendanceButton"
+        app:layout_constraintTop_toBottomOf="@id/assignmentsButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,29 +10,53 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
-            android:id="@+id/dateText"
-            android:layout_width="0dp"
+            android:id="@+id/studentNameText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Monday, Jan 15, 2024"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/statusText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Present"
+            android:text="Student Name"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:padding="8dp"
-            android:background="@drawable/status_background" />
+            android:textColor="#222222" />
 
+        <TextView
+            android:id="@+id/courseNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Course Name"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            android:textColor="#666666"
+            android:layout_marginBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Monday, Jan 15, 2024"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Present"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:background="@drawable/status_background" />
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
