@@ -186,9 +186,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 For questions, support, or feature requests, please open an issue or contact the maintainer:
 
-- **GitHub Issues:** [https://github.com/yourusername/EduStack/issues](https://github.com/yourusername/EduStack/issues)
-- **Email:** your.email@example.com
-
+- **GitHub Issues:** [https://github.com/yourusername/EduStack/issues](https://github.com/sachithasamadhib/EduStack/issues)
+- **Email:** developerofficial54@gmail.com
 ---
 
 **EduStack** – Empowering Education, One Click at a Time.
