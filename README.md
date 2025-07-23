@@ -1,6 +1,10 @@
-# EduStack
-
+<h1 align="left">
+ <img src="https://github.com/user-attachments/assets/dfd4ae86-f62c-437f-bc13-75173e9b8116" alt="EduStack Logo" width="80" style="vertical-align: middle; margin-right: 10px;">
+  EduStack
+   <img src="https://github.com/user-attachments/assets/dfd4ae86-f62c-437f-bc13-75173e9b8116" alt="EduStack Logo" width="80" style="vertical-align: middle; margin-right: 10px;">
+</h1>
 **EduStack** is a modern educational management system designed to simplify and automate the daily operations of schools, colleges, and other educational institutions. With dedicated modules for administrators, teachers, and students, EduStack provides a seamless experience for managing classes, accounts, schedules, reports, and communication.
+
 
 ---
 
